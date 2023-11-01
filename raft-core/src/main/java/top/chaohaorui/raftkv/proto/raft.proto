@@ -1,0 +1,101 @@
+syntax="proto3";
+
+package raft;
+option java_package = "top.chaohaorui.raftkv.proto";
+option java_outer_classname = "RaftProto";
+
+
+enum RaftState{
+  FOLLOWER = 0;
+  CANDIDATE = 1;
+  LEADER = 2;
+}
+
+enum Operation{
+  GET = 0;
+  ADD = 1;
+  DELETE = 2;
+}
+
+enum FowardType{
+  WRITE = 0;
+  READ = 1;
+  CONF = 2;
+}
+
+enum EntryType{
+  DADA = 0;
+  CONFIGURATION = 1;
+}
+
+message Peer{
+  optional string id = 1;
+  optional string ip = 2;
+  optional int32 port = 3;
+}
+
+
+message Configuration{
+  optional Operation op = 1;
+  repeated string peer = 2;
+}
+
+message LogEntry{
+  optional int64 term = 1;
+  optional int64 index = 2;
+  optional EntryType type = 3;
+  optional bytes data = 4;
+  optional Configuration conf = 5;
+}
+
+
+message AppendEntryRequest{
+  optional string leaderId = 1;
+  optional int64 term = 2;
+  optional int64 prevLogIndex = 3;
+  optional int64 prevLogTerm = 4;
+  optional int64 commitIndex = 5;
+  repeated LogEntry entries = 6;
+}
+
+message AppendEntryResponse{
+  optional int64 term = 1;
+  optional bool success = 2;
+}
+
+message ForwardRequest{
+  optional FowardType type = 1;
+  optional bytes data = 2;
+  optional Configuration conf = 3;
+}
+
+message FowardResponse{
+  optional bool success = 1;
+  optional bytes data = 2;
+}
+
+message VoteRequest{
+  optional string candidateId = 1;
+  optional int64 term = 2;
+  optional int64 lastLogIndex = 3;
+  optional int64 lastLogTerm = 4;
+}
+
+message VoteResponse{
+  optional int64 term = 1;
+  optional bool voteGranted = 2;
+}
+
+message InstallSnapshotRequest{
+  optional int64 term = 1;
+  optional string leaderId = 2;
+  optional int64 lastIncludedIndex = 3;
+  optional int64 lastIncludedTerm = 4;
+  optional int64 offset = 5;
+  optional bytes data = 6;
+  optional bool done = 7;
+}
+
+message InstallSnapshotResponse{
+  optional int64 term = 1;
+}
