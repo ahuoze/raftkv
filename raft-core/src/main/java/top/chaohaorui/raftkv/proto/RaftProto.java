@@ -512,12 +512,12 @@ public final class RaftProto {
         getIpBytes();
 
     /**
-     * <code>optional int32 port = 3;</code>
+     * <code>optional uint32 port = 3;</code>
      * @return Whether the port field is set.
      */
     boolean hasPort();
     /**
-     * <code>optional int32 port = 3;</code>
+     * <code>optional uint32 port = 3;</code>
      * @return The port.
      */
     int getPort();
@@ -657,7 +657,7 @@ public final class RaftProto {
     public static final int PORT_FIELD_NUMBER = 3;
     private int port_ = 0;
     /**
-     * <code>optional int32 port = 3;</code>
+     * <code>optional uint32 port = 3;</code>
      * @return Whether the port field is set.
      */
     @java.lang.Override
@@ -665,7 +665,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional int32 port = 3;</code>
+     * <code>optional uint32 port = 3;</code>
      * @return The port.
      */
     @java.lang.Override
@@ -694,7 +694,7 @@ public final class RaftProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, ip_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeInt32(3, port_);
+        output.writeUInt32(3, port_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -713,7 +713,7 @@ public final class RaftProto {
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, port_);
+          .computeUInt32Size(3, port_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -1045,7 +1045,7 @@ public final class RaftProto {
                 break;
               } // case 18
               case 24: {
-                port_ = input.readInt32();
+                port_ = input.readUInt32();
                 bitField0_ |= 0x00000004;
                 break;
               } // case 24
@@ -1226,7 +1226,7 @@ public final class RaftProto {
 
       private int port_ ;
       /**
-       * <code>optional int32 port = 3;</code>
+       * <code>optional uint32 port = 3;</code>
        * @return Whether the port field is set.
        */
       @java.lang.Override
@@ -1234,7 +1234,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional int32 port = 3;</code>
+       * <code>optional uint32 port = 3;</code>
        * @return The port.
        */
       @java.lang.Override
@@ -1242,7 +1242,7 @@ public final class RaftProto {
         return port_;
       }
       /**
-       * <code>optional int32 port = 3;</code>
+       * <code>optional uint32 port = 3;</code>
        * @param value The port to set.
        * @return This builder for chaining.
        */
@@ -1254,7 +1254,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int32 port = 3;</code>
+       * <code>optional uint32 port = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPort() {
@@ -2083,23 +2083,23 @@ public final class RaftProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     boolean hasTerm();
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     long getTerm();
 
     /**
-     * <code>optional int64 index = 2;</code>
+     * <code>optional uint64 index = 2;</code>
      * @return Whether the index field is set.
      */
     boolean hasIndex();
     /**
-     * <code>optional int64 index = 2;</code>
+     * <code>optional uint64 index = 2;</code>
      * @return The index.
      */
     long getIndex();
@@ -2187,7 +2187,7 @@ public final class RaftProto {
     public static final int TERM_FIELD_NUMBER = 1;
     private long term_ = 0L;
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     @java.lang.Override
@@ -2195,7 +2195,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     @java.lang.Override
@@ -2206,7 +2206,7 @@ public final class RaftProto {
     public static final int INDEX_FIELD_NUMBER = 2;
     private long index_ = 0L;
     /**
-     * <code>optional int64 index = 2;</code>
+     * <code>optional uint64 index = 2;</code>
      * @return Whether the index field is set.
      */
     @java.lang.Override
@@ -2214,7 +2214,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional int64 index = 2;</code>
+     * <code>optional uint64 index = 2;</code>
      * @return The index.
      */
     @java.lang.Override
@@ -2307,10 +2307,10 @@ public final class RaftProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt64(1, term_);
+        output.writeUInt64(1, term_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt64(2, index_);
+        output.writeUInt64(2, index_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         output.writeEnum(3, type_);
@@ -2332,11 +2332,11 @@ public final class RaftProto {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, term_);
+          .computeUInt64Size(1, term_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, index_);
+          .computeUInt64Size(2, index_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -2713,12 +2713,12 @@ public final class RaftProto {
                 done = true;
                 break;
               case 8: {
-                term_ = input.readInt64();
+                term_ = input.readUInt64();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
               case 16: {
-                index_ = input.readInt64();
+                index_ = input.readUInt64();
                 bitField0_ |= 0x00000002;
                 break;
               } // case 16
@@ -2758,7 +2758,7 @@ public final class RaftProto {
 
       private long term_ ;
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return Whether the term field is set.
        */
       @java.lang.Override
@@ -2766,7 +2766,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return The term.
        */
       @java.lang.Override
@@ -2774,7 +2774,7 @@ public final class RaftProto {
         return term_;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @param value The term to set.
        * @return This builder for chaining.
        */
@@ -2786,7 +2786,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerm() {
@@ -2798,7 +2798,7 @@ public final class RaftProto {
 
       private long index_ ;
       /**
-       * <code>optional int64 index = 2;</code>
+       * <code>optional uint64 index = 2;</code>
        * @return Whether the index field is set.
        */
       @java.lang.Override
@@ -2806,7 +2806,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional int64 index = 2;</code>
+       * <code>optional uint64 index = 2;</code>
        * @return The index.
        */
       @java.lang.Override
@@ -2814,7 +2814,7 @@ public final class RaftProto {
         return index_;
       }
       /**
-       * <code>optional int64 index = 2;</code>
+       * <code>optional uint64 index = 2;</code>
        * @param value The index to set.
        * @return This builder for chaining.
        */
@@ -2826,7 +2826,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 index = 2;</code>
+       * <code>optional uint64 index = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearIndex() {
@@ -3142,45 +3142,45 @@ public final class RaftProto {
         getLeaderIdBytes();
 
     /**
-     * <code>optional int64 term = 2;</code>
+     * <code>optional uint64 term = 2;</code>
      * @return Whether the term field is set.
      */
     boolean hasTerm();
     /**
-     * <code>optional int64 term = 2;</code>
+     * <code>optional uint64 term = 2;</code>
      * @return The term.
      */
     long getTerm();
 
     /**
-     * <code>optional int64 prevLogIndex = 3;</code>
+     * <code>optional uint64 prevLogIndex = 3;</code>
      * @return Whether the prevLogIndex field is set.
      */
     boolean hasPrevLogIndex();
     /**
-     * <code>optional int64 prevLogIndex = 3;</code>
+     * <code>optional uint64 prevLogIndex = 3;</code>
      * @return The prevLogIndex.
      */
     long getPrevLogIndex();
 
     /**
-     * <code>optional int64 prevLogTerm = 4;</code>
+     * <code>optional uint64 prevLogTerm = 4;</code>
      * @return Whether the prevLogTerm field is set.
      */
     boolean hasPrevLogTerm();
     /**
-     * <code>optional int64 prevLogTerm = 4;</code>
+     * <code>optional uint64 prevLogTerm = 4;</code>
      * @return The prevLogTerm.
      */
     long getPrevLogTerm();
 
     /**
-     * <code>optional int64 commitIndex = 5;</code>
+     * <code>optional uint64 commitIndex = 5;</code>
      * @return Whether the commitIndex field is set.
      */
     boolean hasCommitIndex();
     /**
-     * <code>optional int64 commitIndex = 5;</code>
+     * <code>optional uint64 commitIndex = 5;</code>
      * @return The commitIndex.
      */
     long getCommitIndex();
@@ -3297,7 +3297,7 @@ public final class RaftProto {
     public static final int TERM_FIELD_NUMBER = 2;
     private long term_ = 0L;
     /**
-     * <code>optional int64 term = 2;</code>
+     * <code>optional uint64 term = 2;</code>
      * @return Whether the term field is set.
      */
     @java.lang.Override
@@ -3305,7 +3305,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional int64 term = 2;</code>
+     * <code>optional uint64 term = 2;</code>
      * @return The term.
      */
     @java.lang.Override
@@ -3316,7 +3316,7 @@ public final class RaftProto {
     public static final int PREVLOGINDEX_FIELD_NUMBER = 3;
     private long prevLogIndex_ = 0L;
     /**
-     * <code>optional int64 prevLogIndex = 3;</code>
+     * <code>optional uint64 prevLogIndex = 3;</code>
      * @return Whether the prevLogIndex field is set.
      */
     @java.lang.Override
@@ -3324,7 +3324,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional int64 prevLogIndex = 3;</code>
+     * <code>optional uint64 prevLogIndex = 3;</code>
      * @return The prevLogIndex.
      */
     @java.lang.Override
@@ -3335,7 +3335,7 @@ public final class RaftProto {
     public static final int PREVLOGTERM_FIELD_NUMBER = 4;
     private long prevLogTerm_ = 0L;
     /**
-     * <code>optional int64 prevLogTerm = 4;</code>
+     * <code>optional uint64 prevLogTerm = 4;</code>
      * @return Whether the prevLogTerm field is set.
      */
     @java.lang.Override
@@ -3343,7 +3343,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>optional int64 prevLogTerm = 4;</code>
+     * <code>optional uint64 prevLogTerm = 4;</code>
      * @return The prevLogTerm.
      */
     @java.lang.Override
@@ -3354,7 +3354,7 @@ public final class RaftProto {
     public static final int COMMITINDEX_FIELD_NUMBER = 5;
     private long commitIndex_ = 0L;
     /**
-     * <code>optional int64 commitIndex = 5;</code>
+     * <code>optional uint64 commitIndex = 5;</code>
      * @return Whether the commitIndex field is set.
      */
     @java.lang.Override
@@ -3362,7 +3362,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional int64 commitIndex = 5;</code>
+     * <code>optional uint64 commitIndex = 5;</code>
      * @return The commitIndex.
      */
     @java.lang.Override
@@ -3429,16 +3429,16 @@ public final class RaftProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, leaderId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt64(2, term_);
+        output.writeUInt64(2, term_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeInt64(3, prevLogIndex_);
+        output.writeUInt64(3, prevLogIndex_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeInt64(4, prevLogTerm_);
+        output.writeUInt64(4, prevLogTerm_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeInt64(5, commitIndex_);
+        output.writeUInt64(5, commitIndex_);
       }
       for (int i = 0; i < entries_.size(); i++) {
         output.writeMessage(6, entries_.get(i));
@@ -3457,19 +3457,19 @@ public final class RaftProto {
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, term_);
+          .computeUInt64Size(2, term_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, prevLogIndex_);
+          .computeUInt64Size(3, prevLogIndex_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, prevLogTerm_);
+          .computeUInt64Size(4, prevLogTerm_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, commitIndex_);
+          .computeUInt64Size(5, commitIndex_);
       }
       for (int i = 0; i < entries_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
@@ -3888,22 +3888,22 @@ public final class RaftProto {
                 break;
               } // case 10
               case 16: {
-                term_ = input.readInt64();
+                term_ = input.readUInt64();
                 bitField0_ |= 0x00000002;
                 break;
               } // case 16
               case 24: {
-                prevLogIndex_ = input.readInt64();
+                prevLogIndex_ = input.readUInt64();
                 bitField0_ |= 0x00000004;
                 break;
               } // case 24
               case 32: {
-                prevLogTerm_ = input.readInt64();
+                prevLogTerm_ = input.readUInt64();
                 bitField0_ |= 0x00000008;
                 break;
               } // case 32
               case 40: {
-                commitIndex_ = input.readInt64();
+                commitIndex_ = input.readUInt64();
                 bitField0_ |= 0x00000010;
                 break;
               } // case 40
@@ -4018,7 +4018,7 @@ public final class RaftProto {
 
       private long term_ ;
       /**
-       * <code>optional int64 term = 2;</code>
+       * <code>optional uint64 term = 2;</code>
        * @return Whether the term field is set.
        */
       @java.lang.Override
@@ -4026,7 +4026,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional int64 term = 2;</code>
+       * <code>optional uint64 term = 2;</code>
        * @return The term.
        */
       @java.lang.Override
@@ -4034,7 +4034,7 @@ public final class RaftProto {
         return term_;
       }
       /**
-       * <code>optional int64 term = 2;</code>
+       * <code>optional uint64 term = 2;</code>
        * @param value The term to set.
        * @return This builder for chaining.
        */
@@ -4046,7 +4046,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 term = 2;</code>
+       * <code>optional uint64 term = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerm() {
@@ -4058,7 +4058,7 @@ public final class RaftProto {
 
       private long prevLogIndex_ ;
       /**
-       * <code>optional int64 prevLogIndex = 3;</code>
+       * <code>optional uint64 prevLogIndex = 3;</code>
        * @return Whether the prevLogIndex field is set.
        */
       @java.lang.Override
@@ -4066,7 +4066,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional int64 prevLogIndex = 3;</code>
+       * <code>optional uint64 prevLogIndex = 3;</code>
        * @return The prevLogIndex.
        */
       @java.lang.Override
@@ -4074,7 +4074,7 @@ public final class RaftProto {
         return prevLogIndex_;
       }
       /**
-       * <code>optional int64 prevLogIndex = 3;</code>
+       * <code>optional uint64 prevLogIndex = 3;</code>
        * @param value The prevLogIndex to set.
        * @return This builder for chaining.
        */
@@ -4086,7 +4086,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 prevLogIndex = 3;</code>
+       * <code>optional uint64 prevLogIndex = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearPrevLogIndex() {
@@ -4098,7 +4098,7 @@ public final class RaftProto {
 
       private long prevLogTerm_ ;
       /**
-       * <code>optional int64 prevLogTerm = 4;</code>
+       * <code>optional uint64 prevLogTerm = 4;</code>
        * @return Whether the prevLogTerm field is set.
        */
       @java.lang.Override
@@ -4106,7 +4106,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>optional int64 prevLogTerm = 4;</code>
+       * <code>optional uint64 prevLogTerm = 4;</code>
        * @return The prevLogTerm.
        */
       @java.lang.Override
@@ -4114,7 +4114,7 @@ public final class RaftProto {
         return prevLogTerm_;
       }
       /**
-       * <code>optional int64 prevLogTerm = 4;</code>
+       * <code>optional uint64 prevLogTerm = 4;</code>
        * @param value The prevLogTerm to set.
        * @return This builder for chaining.
        */
@@ -4126,7 +4126,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 prevLogTerm = 4;</code>
+       * <code>optional uint64 prevLogTerm = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearPrevLogTerm() {
@@ -4138,7 +4138,7 @@ public final class RaftProto {
 
       private long commitIndex_ ;
       /**
-       * <code>optional int64 commitIndex = 5;</code>
+       * <code>optional uint64 commitIndex = 5;</code>
        * @return Whether the commitIndex field is set.
        */
       @java.lang.Override
@@ -4146,7 +4146,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>optional int64 commitIndex = 5;</code>
+       * <code>optional uint64 commitIndex = 5;</code>
        * @return The commitIndex.
        */
       @java.lang.Override
@@ -4154,7 +4154,7 @@ public final class RaftProto {
         return commitIndex_;
       }
       /**
-       * <code>optional int64 commitIndex = 5;</code>
+       * <code>optional uint64 commitIndex = 5;</code>
        * @param value The commitIndex to set.
        * @return This builder for chaining.
        */
@@ -4166,7 +4166,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 commitIndex = 5;</code>
+       * <code>optional uint64 commitIndex = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearCommitIndex() {
@@ -4484,12 +4484,12 @@ public final class RaftProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     boolean hasTerm();
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     long getTerm();
@@ -4504,6 +4504,17 @@ public final class RaftProto {
      * @return The success.
      */
     boolean getSuccess();
+
+    /**
+     * <code>optional uint64 last_log_index = 3;</code>
+     * @return Whether the lastLogIndex field is set.
+     */
+    boolean hasLastLogIndex();
+    /**
+     * <code>optional uint64 last_log_index = 3;</code>
+     * @return The lastLogIndex.
+     */
+    long getLastLogIndex();
   }
   /**
    * Protobuf type {@code raft.AppendEntryResponse}
@@ -4544,7 +4555,7 @@ public final class RaftProto {
     public static final int TERM_FIELD_NUMBER = 1;
     private long term_ = 0L;
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     @java.lang.Override
@@ -4552,7 +4563,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     @java.lang.Override
@@ -4579,6 +4590,25 @@ public final class RaftProto {
       return success_;
     }
 
+    public static final int LAST_LOG_INDEX_FIELD_NUMBER = 3;
+    private long lastLogIndex_ = 0L;
+    /**
+     * <code>optional uint64 last_log_index = 3;</code>
+     * @return Whether the lastLogIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastLogIndex() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional uint64 last_log_index = 3;</code>
+     * @return The lastLogIndex.
+     */
+    @java.lang.Override
+    public long getLastLogIndex() {
+      return lastLogIndex_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -4594,10 +4624,13 @@ public final class RaftProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt64(1, term_);
+        output.writeUInt64(1, term_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeBool(2, success_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeUInt64(3, lastLogIndex_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -4610,11 +4643,15 @@ public final class RaftProto {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, term_);
+          .computeUInt64Size(1, term_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBoolSize(2, success_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, lastLogIndex_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -4641,6 +4678,11 @@ public final class RaftProto {
         if (getSuccess()
             != other.getSuccess()) return false;
       }
+      if (hasLastLogIndex() != other.hasLastLogIndex()) return false;
+      if (hasLastLogIndex()) {
+        if (getLastLogIndex()
+            != other.getLastLogIndex()) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -4661,6 +4703,11 @@ public final class RaftProto {
         hash = (37 * hash) + SUCCESS_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
             getSuccess());
+      }
+      if (hasLastLogIndex()) {
+        hash = (37 * hash) + LAST_LOG_INDEX_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastLogIndex());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -4795,6 +4842,7 @@ public final class RaftProto {
         bitField0_ = 0;
         term_ = 0L;
         success_ = false;
+        lastLogIndex_ = 0L;
         return this;
       }
 
@@ -4836,6 +4884,10 @@ public final class RaftProto {
         if (((from_bitField0_ & 0x00000002) != 0)) {
           result.success_ = success_;
           to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.lastLogIndex_ = lastLogIndex_;
+          to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -4890,6 +4942,9 @@ public final class RaftProto {
         if (other.hasSuccess()) {
           setSuccess(other.getSuccess());
         }
+        if (other.hasLastLogIndex()) {
+          setLastLogIndex(other.getLastLogIndex());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -4917,7 +4972,7 @@ public final class RaftProto {
                 done = true;
                 break;
               case 8: {
-                term_ = input.readInt64();
+                term_ = input.readUInt64();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
@@ -4926,6 +4981,11 @@ public final class RaftProto {
                 bitField0_ |= 0x00000002;
                 break;
               } // case 16
+              case 24: {
+                lastLogIndex_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -4945,7 +5005,7 @@ public final class RaftProto {
 
       private long term_ ;
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return Whether the term field is set.
        */
       @java.lang.Override
@@ -4953,7 +5013,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return The term.
        */
       @java.lang.Override
@@ -4961,7 +5021,7 @@ public final class RaftProto {
         return term_;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @param value The term to set.
        * @return This builder for chaining.
        */
@@ -4973,7 +5033,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerm() {
@@ -5019,6 +5079,46 @@ public final class RaftProto {
       public Builder clearSuccess() {
         bitField0_ = (bitField0_ & ~0x00000002);
         success_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long lastLogIndex_ ;
+      /**
+       * <code>optional uint64 last_log_index = 3;</code>
+       * @return Whether the lastLogIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastLogIndex() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional uint64 last_log_index = 3;</code>
+       * @return The lastLogIndex.
+       */
+      @java.lang.Override
+      public long getLastLogIndex() {
+        return lastLogIndex_;
+      }
+      /**
+       * <code>optional uint64 last_log_index = 3;</code>
+       * @param value The lastLogIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastLogIndex(long value) {
+
+        lastLogIndex_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 last_log_index = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastLogIndex() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        lastLogIndex_ = 0L;
         onChanged();
         return this;
       }
@@ -6557,34 +6657,34 @@ public final class RaftProto {
         getCandidateIdBytes();
 
     /**
-     * <code>optional int64 term = 2;</code>
+     * <code>optional uint64 term = 2;</code>
      * @return Whether the term field is set.
      */
     boolean hasTerm();
     /**
-     * <code>optional int64 term = 2;</code>
+     * <code>optional uint64 term = 2;</code>
      * @return The term.
      */
     long getTerm();
 
     /**
-     * <code>optional int64 lastLogIndex = 3;</code>
+     * <code>optional uint64 lastLogIndex = 3;</code>
      * @return Whether the lastLogIndex field is set.
      */
     boolean hasLastLogIndex();
     /**
-     * <code>optional int64 lastLogIndex = 3;</code>
+     * <code>optional uint64 lastLogIndex = 3;</code>
      * @return The lastLogIndex.
      */
     long getLastLogIndex();
 
     /**
-     * <code>optional int64 lastLogTerm = 4;</code>
+     * <code>optional uint64 lastLogTerm = 4;</code>
      * @return Whether the lastLogTerm field is set.
      */
     boolean hasLastLogTerm();
     /**
-     * <code>optional int64 lastLogTerm = 4;</code>
+     * <code>optional uint64 lastLogTerm = 4;</code>
      * @return The lastLogTerm.
      */
     long getLastLogTerm();
@@ -6676,7 +6776,7 @@ public final class RaftProto {
     public static final int TERM_FIELD_NUMBER = 2;
     private long term_ = 0L;
     /**
-     * <code>optional int64 term = 2;</code>
+     * <code>optional uint64 term = 2;</code>
      * @return Whether the term field is set.
      */
     @java.lang.Override
@@ -6684,7 +6784,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000002) != 0);
     }
     /**
-     * <code>optional int64 term = 2;</code>
+     * <code>optional uint64 term = 2;</code>
      * @return The term.
      */
     @java.lang.Override
@@ -6695,7 +6795,7 @@ public final class RaftProto {
     public static final int LASTLOGINDEX_FIELD_NUMBER = 3;
     private long lastLogIndex_ = 0L;
     /**
-     * <code>optional int64 lastLogIndex = 3;</code>
+     * <code>optional uint64 lastLogIndex = 3;</code>
      * @return Whether the lastLogIndex field is set.
      */
     @java.lang.Override
@@ -6703,7 +6803,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional int64 lastLogIndex = 3;</code>
+     * <code>optional uint64 lastLogIndex = 3;</code>
      * @return The lastLogIndex.
      */
     @java.lang.Override
@@ -6714,7 +6814,7 @@ public final class RaftProto {
     public static final int LASTLOGTERM_FIELD_NUMBER = 4;
     private long lastLogTerm_ = 0L;
     /**
-     * <code>optional int64 lastLogTerm = 4;</code>
+     * <code>optional uint64 lastLogTerm = 4;</code>
      * @return Whether the lastLogTerm field is set.
      */
     @java.lang.Override
@@ -6722,7 +6822,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>optional int64 lastLogTerm = 4;</code>
+     * <code>optional uint64 lastLogTerm = 4;</code>
      * @return The lastLogTerm.
      */
     @java.lang.Override
@@ -6748,13 +6848,13 @@ public final class RaftProto {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, candidateId_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
-        output.writeInt64(2, term_);
+        output.writeUInt64(2, term_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeInt64(3, lastLogIndex_);
+        output.writeUInt64(3, lastLogIndex_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeInt64(4, lastLogTerm_);
+        output.writeUInt64(4, lastLogTerm_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -6770,15 +6870,15 @@ public final class RaftProto {
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, term_);
+          .computeUInt64Size(2, term_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, lastLogIndex_);
+          .computeUInt64Size(3, lastLogIndex_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, lastLogTerm_);
+          .computeUInt64Size(4, lastLogTerm_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -7123,17 +7223,17 @@ public final class RaftProto {
                 break;
               } // case 10
               case 16: {
-                term_ = input.readInt64();
+                term_ = input.readUInt64();
                 bitField0_ |= 0x00000002;
                 break;
               } // case 16
               case 24: {
-                lastLogIndex_ = input.readInt64();
+                lastLogIndex_ = input.readUInt64();
                 bitField0_ |= 0x00000004;
                 break;
               } // case 24
               case 32: {
-                lastLogTerm_ = input.readInt64();
+                lastLogTerm_ = input.readUInt64();
                 bitField0_ |= 0x00000008;
                 break;
               } // case 32
@@ -7235,7 +7335,7 @@ public final class RaftProto {
 
       private long term_ ;
       /**
-       * <code>optional int64 term = 2;</code>
+       * <code>optional uint64 term = 2;</code>
        * @return Whether the term field is set.
        */
       @java.lang.Override
@@ -7243,7 +7343,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000002) != 0);
       }
       /**
-       * <code>optional int64 term = 2;</code>
+       * <code>optional uint64 term = 2;</code>
        * @return The term.
        */
       @java.lang.Override
@@ -7251,7 +7351,7 @@ public final class RaftProto {
         return term_;
       }
       /**
-       * <code>optional int64 term = 2;</code>
+       * <code>optional uint64 term = 2;</code>
        * @param value The term to set.
        * @return This builder for chaining.
        */
@@ -7263,7 +7363,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 term = 2;</code>
+       * <code>optional uint64 term = 2;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerm() {
@@ -7275,7 +7375,7 @@ public final class RaftProto {
 
       private long lastLogIndex_ ;
       /**
-       * <code>optional int64 lastLogIndex = 3;</code>
+       * <code>optional uint64 lastLogIndex = 3;</code>
        * @return Whether the lastLogIndex field is set.
        */
       @java.lang.Override
@@ -7283,7 +7383,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional int64 lastLogIndex = 3;</code>
+       * <code>optional uint64 lastLogIndex = 3;</code>
        * @return The lastLogIndex.
        */
       @java.lang.Override
@@ -7291,7 +7391,7 @@ public final class RaftProto {
         return lastLogIndex_;
       }
       /**
-       * <code>optional int64 lastLogIndex = 3;</code>
+       * <code>optional uint64 lastLogIndex = 3;</code>
        * @param value The lastLogIndex to set.
        * @return This builder for chaining.
        */
@@ -7303,7 +7403,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 lastLogIndex = 3;</code>
+       * <code>optional uint64 lastLogIndex = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearLastLogIndex() {
@@ -7315,7 +7415,7 @@ public final class RaftProto {
 
       private long lastLogTerm_ ;
       /**
-       * <code>optional int64 lastLogTerm = 4;</code>
+       * <code>optional uint64 lastLogTerm = 4;</code>
        * @return Whether the lastLogTerm field is set.
        */
       @java.lang.Override
@@ -7323,7 +7423,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>optional int64 lastLogTerm = 4;</code>
+       * <code>optional uint64 lastLogTerm = 4;</code>
        * @return The lastLogTerm.
        */
       @java.lang.Override
@@ -7331,7 +7431,7 @@ public final class RaftProto {
         return lastLogTerm_;
       }
       /**
-       * <code>optional int64 lastLogTerm = 4;</code>
+       * <code>optional uint64 lastLogTerm = 4;</code>
        * @param value The lastLogTerm to set.
        * @return This builder for chaining.
        */
@@ -7343,7 +7443,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 lastLogTerm = 4;</code>
+       * <code>optional uint64 lastLogTerm = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearLastLogTerm() {
@@ -7421,12 +7521,12 @@ public final class RaftProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     boolean hasTerm();
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     long getTerm();
@@ -7481,7 +7581,7 @@ public final class RaftProto {
     public static final int TERM_FIELD_NUMBER = 1;
     private long term_ = 0L;
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     @java.lang.Override
@@ -7489,7 +7589,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     @java.lang.Override
@@ -7531,7 +7631,7 @@ public final class RaftProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt64(1, term_);
+        output.writeUInt64(1, term_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         output.writeBool(2, voteGranted_);
@@ -7547,7 +7647,7 @@ public final class RaftProto {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, term_);
+          .computeUInt64Size(1, term_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -7854,7 +7954,7 @@ public final class RaftProto {
                 done = true;
                 break;
               case 8: {
-                term_ = input.readInt64();
+                term_ = input.readUInt64();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
@@ -7882,7 +7982,7 @@ public final class RaftProto {
 
       private long term_ ;
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return Whether the term field is set.
        */
       @java.lang.Override
@@ -7890,7 +7990,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return The term.
        */
       @java.lang.Override
@@ -7898,7 +7998,7 @@ public final class RaftProto {
         return term_;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @param value The term to set.
        * @return This builder for chaining.
        */
@@ -7910,7 +8010,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerm() {
@@ -8028,12 +8128,12 @@ public final class RaftProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     boolean hasTerm();
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     long getTerm();
@@ -8056,34 +8156,34 @@ public final class RaftProto {
         getLeaderIdBytes();
 
     /**
-     * <code>optional int64 lastIncludedIndex = 3;</code>
+     * <code>optional uint64 lastIncludedIndex = 3;</code>
      * @return Whether the lastIncludedIndex field is set.
      */
     boolean hasLastIncludedIndex();
     /**
-     * <code>optional int64 lastIncludedIndex = 3;</code>
+     * <code>optional uint64 lastIncludedIndex = 3;</code>
      * @return The lastIncludedIndex.
      */
     long getLastIncludedIndex();
 
     /**
-     * <code>optional int64 lastIncludedTerm = 4;</code>
+     * <code>optional uint64 lastIncludedTerm = 4;</code>
      * @return Whether the lastIncludedTerm field is set.
      */
     boolean hasLastIncludedTerm();
     /**
-     * <code>optional int64 lastIncludedTerm = 4;</code>
+     * <code>optional uint64 lastIncludedTerm = 4;</code>
      * @return The lastIncludedTerm.
      */
     long getLastIncludedTerm();
 
     /**
-     * <code>optional int64 offset = 5;</code>
+     * <code>optional uint64 offset = 5;</code>
      * @return Whether the offset field is set.
      */
     boolean hasOffset();
     /**
-     * <code>optional int64 offset = 5;</code>
+     * <code>optional uint64 offset = 5;</code>
      * @return The offset.
      */
     long getOffset();
@@ -8151,7 +8251,7 @@ public final class RaftProto {
     public static final int TERM_FIELD_NUMBER = 1;
     private long term_ = 0L;
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     @java.lang.Override
@@ -8159,7 +8259,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     @java.lang.Override
@@ -8217,7 +8317,7 @@ public final class RaftProto {
     public static final int LASTINCLUDEDINDEX_FIELD_NUMBER = 3;
     private long lastIncludedIndex_ = 0L;
     /**
-     * <code>optional int64 lastIncludedIndex = 3;</code>
+     * <code>optional uint64 lastIncludedIndex = 3;</code>
      * @return Whether the lastIncludedIndex field is set.
      */
     @java.lang.Override
@@ -8225,7 +8325,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000004) != 0);
     }
     /**
-     * <code>optional int64 lastIncludedIndex = 3;</code>
+     * <code>optional uint64 lastIncludedIndex = 3;</code>
      * @return The lastIncludedIndex.
      */
     @java.lang.Override
@@ -8236,7 +8336,7 @@ public final class RaftProto {
     public static final int LASTINCLUDEDTERM_FIELD_NUMBER = 4;
     private long lastIncludedTerm_ = 0L;
     /**
-     * <code>optional int64 lastIncludedTerm = 4;</code>
+     * <code>optional uint64 lastIncludedTerm = 4;</code>
      * @return Whether the lastIncludedTerm field is set.
      */
     @java.lang.Override
@@ -8244,7 +8344,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000008) != 0);
     }
     /**
-     * <code>optional int64 lastIncludedTerm = 4;</code>
+     * <code>optional uint64 lastIncludedTerm = 4;</code>
      * @return The lastIncludedTerm.
      */
     @java.lang.Override
@@ -8255,7 +8355,7 @@ public final class RaftProto {
     public static final int OFFSET_FIELD_NUMBER = 5;
     private long offset_ = 0L;
     /**
-     * <code>optional int64 offset = 5;</code>
+     * <code>optional uint64 offset = 5;</code>
      * @return Whether the offset field is set.
      */
     @java.lang.Override
@@ -8263,7 +8363,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000010) != 0);
     }
     /**
-     * <code>optional int64 offset = 5;</code>
+     * <code>optional uint64 offset = 5;</code>
      * @return The offset.
      */
     @java.lang.Override
@@ -8324,19 +8424,19 @@ public final class RaftProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt64(1, term_);
+        output.writeUInt64(1, term_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, leaderId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
-        output.writeInt64(3, lastIncludedIndex_);
+        output.writeUInt64(3, lastIncludedIndex_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
-        output.writeInt64(4, lastIncludedTerm_);
+        output.writeUInt64(4, lastIncludedTerm_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
-        output.writeInt64(5, offset_);
+        output.writeUInt64(5, offset_);
       }
       if (((bitField0_ & 0x00000020) != 0)) {
         output.writeBytes(6, data_);
@@ -8355,22 +8455,22 @@ public final class RaftProto {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, term_);
+          .computeUInt64Size(1, term_);
       }
       if (((bitField0_ & 0x00000002) != 0)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, leaderId_);
       }
       if (((bitField0_ & 0x00000004) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, lastIncludedIndex_);
+          .computeUInt64Size(3, lastIncludedIndex_);
       }
       if (((bitField0_ & 0x00000008) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, lastIncludedTerm_);
+          .computeUInt64Size(4, lastIncludedTerm_);
       }
       if (((bitField0_ & 0x00000010) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(5, offset_);
+          .computeUInt64Size(5, offset_);
       }
       if (((bitField0_ & 0x00000020) != 0)) {
         size += com.google.protobuf.CodedOutputStream
@@ -8771,7 +8871,7 @@ public final class RaftProto {
                 done = true;
                 break;
               case 8: {
-                term_ = input.readInt64();
+                term_ = input.readUInt64();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
@@ -8781,17 +8881,17 @@ public final class RaftProto {
                 break;
               } // case 18
               case 24: {
-                lastIncludedIndex_ = input.readInt64();
+                lastIncludedIndex_ = input.readUInt64();
                 bitField0_ |= 0x00000004;
                 break;
               } // case 24
               case 32: {
-                lastIncludedTerm_ = input.readInt64();
+                lastIncludedTerm_ = input.readUInt64();
                 bitField0_ |= 0x00000008;
                 break;
               } // case 32
               case 40: {
-                offset_ = input.readInt64();
+                offset_ = input.readUInt64();
                 bitField0_ |= 0x00000010;
                 break;
               } // case 40
@@ -8824,7 +8924,7 @@ public final class RaftProto {
 
       private long term_ ;
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return Whether the term field is set.
        */
       @java.lang.Override
@@ -8832,7 +8932,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return The term.
        */
       @java.lang.Override
@@ -8840,7 +8940,7 @@ public final class RaftProto {
         return term_;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @param value The term to set.
        * @return This builder for chaining.
        */
@@ -8852,7 +8952,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerm() {
@@ -8943,7 +9043,7 @@ public final class RaftProto {
 
       private long lastIncludedIndex_ ;
       /**
-       * <code>optional int64 lastIncludedIndex = 3;</code>
+       * <code>optional uint64 lastIncludedIndex = 3;</code>
        * @return Whether the lastIncludedIndex field is set.
        */
       @java.lang.Override
@@ -8951,7 +9051,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000004) != 0);
       }
       /**
-       * <code>optional int64 lastIncludedIndex = 3;</code>
+       * <code>optional uint64 lastIncludedIndex = 3;</code>
        * @return The lastIncludedIndex.
        */
       @java.lang.Override
@@ -8959,7 +9059,7 @@ public final class RaftProto {
         return lastIncludedIndex_;
       }
       /**
-       * <code>optional int64 lastIncludedIndex = 3;</code>
+       * <code>optional uint64 lastIncludedIndex = 3;</code>
        * @param value The lastIncludedIndex to set.
        * @return This builder for chaining.
        */
@@ -8971,7 +9071,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 lastIncludedIndex = 3;</code>
+       * <code>optional uint64 lastIncludedIndex = 3;</code>
        * @return This builder for chaining.
        */
       public Builder clearLastIncludedIndex() {
@@ -8983,7 +9083,7 @@ public final class RaftProto {
 
       private long lastIncludedTerm_ ;
       /**
-       * <code>optional int64 lastIncludedTerm = 4;</code>
+       * <code>optional uint64 lastIncludedTerm = 4;</code>
        * @return Whether the lastIncludedTerm field is set.
        */
       @java.lang.Override
@@ -8991,7 +9091,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000008) != 0);
       }
       /**
-       * <code>optional int64 lastIncludedTerm = 4;</code>
+       * <code>optional uint64 lastIncludedTerm = 4;</code>
        * @return The lastIncludedTerm.
        */
       @java.lang.Override
@@ -8999,7 +9099,7 @@ public final class RaftProto {
         return lastIncludedTerm_;
       }
       /**
-       * <code>optional int64 lastIncludedTerm = 4;</code>
+       * <code>optional uint64 lastIncludedTerm = 4;</code>
        * @param value The lastIncludedTerm to set.
        * @return This builder for chaining.
        */
@@ -9011,7 +9111,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 lastIncludedTerm = 4;</code>
+       * <code>optional uint64 lastIncludedTerm = 4;</code>
        * @return This builder for chaining.
        */
       public Builder clearLastIncludedTerm() {
@@ -9023,7 +9123,7 @@ public final class RaftProto {
 
       private long offset_ ;
       /**
-       * <code>optional int64 offset = 5;</code>
+       * <code>optional uint64 offset = 5;</code>
        * @return Whether the offset field is set.
        */
       @java.lang.Override
@@ -9031,7 +9131,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000010) != 0);
       }
       /**
-       * <code>optional int64 offset = 5;</code>
+       * <code>optional uint64 offset = 5;</code>
        * @return The offset.
        */
       @java.lang.Override
@@ -9039,7 +9139,7 @@ public final class RaftProto {
         return offset_;
       }
       /**
-       * <code>optional int64 offset = 5;</code>
+       * <code>optional uint64 offset = 5;</code>
        * @param value The offset to set.
        * @return This builder for chaining.
        */
@@ -9051,7 +9151,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 offset = 5;</code>
+       * <code>optional uint64 offset = 5;</code>
        * @return This builder for chaining.
        */
       public Builder clearOffset() {
@@ -9209,12 +9309,12 @@ public final class RaftProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     boolean hasTerm();
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     long getTerm();
@@ -9258,7 +9358,7 @@ public final class RaftProto {
     public static final int TERM_FIELD_NUMBER = 1;
     private long term_ = 0L;
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return Whether the term field is set.
      */
     @java.lang.Override
@@ -9266,7 +9366,7 @@ public final class RaftProto {
       return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * <code>optional int64 term = 1;</code>
+     * <code>optional uint64 term = 1;</code>
      * @return The term.
      */
     @java.lang.Override
@@ -9289,7 +9389,7 @@ public final class RaftProto {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) != 0)) {
-        output.writeInt64(1, term_);
+        output.writeUInt64(1, term_);
       }
       getUnknownFields().writeTo(output);
     }
@@ -9302,7 +9402,7 @@ public final class RaftProto {
       size = 0;
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, term_);
+          .computeUInt64Size(1, term_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -9587,7 +9687,7 @@ public final class RaftProto {
                 done = true;
                 break;
               case 8: {
-                term_ = input.readInt64();
+                term_ = input.readUInt64();
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
@@ -9610,7 +9710,7 @@ public final class RaftProto {
 
       private long term_ ;
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return Whether the term field is set.
        */
       @java.lang.Override
@@ -9618,7 +9718,7 @@ public final class RaftProto {
         return ((bitField0_ & 0x00000001) != 0);
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return The term.
        */
       @java.lang.Override
@@ -9626,7 +9726,7 @@ public final class RaftProto {
         return term_;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @param value The term to set.
        * @return This builder for chaining.
        */
@@ -9638,7 +9738,7 @@ public final class RaftProto {
         return this;
       }
       /**
-       * <code>optional int64 term = 1;</code>
+       * <code>optional uint64 term = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearTerm() {
@@ -9776,49 +9876,51 @@ public final class RaftProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\nraft.proto\022\004raft\"R\n\004Peer\022\017\n\002id\030\001 \001(\tH\000" +
-      "\210\001\001\022\017\n\002ip\030\002 \001(\tH\001\210\001\001\022\021\n\004port\030\003 \001(\005H\002\210\001\001B" +
+      "\210\001\001\022\017\n\002ip\030\002 \001(\tH\001\210\001\001\022\021\n\004port\030\003 \001(\rH\002\210\001\001B" +
       "\005\n\003_idB\005\n\003_ipB\007\n\005_port\"F\n\rConfiguration\022" +
       " \n\002op\030\001 \001(\0162\017.raft.OperationH\000\210\001\001\022\014\n\004pee" +
       "r\030\002 \003(\tB\005\n\003_op\"\276\001\n\010LogEntry\022\021\n\004term\030\001 \001(" +
-      "\003H\000\210\001\001\022\022\n\005index\030\002 \001(\003H\001\210\001\001\022\"\n\004type\030\003 \001(\016" +
+      "\004H\000\210\001\001\022\022\n\005index\030\002 \001(\004H\001\210\001\001\022\"\n\004type\030\003 \001(\016" +
       "2\017.raft.EntryTypeH\002\210\001\001\022\021\n\004data\030\004 \001(\014H\003\210\001" +
       "\001\022&\n\004conf\030\005 \001(\0132\023.raft.ConfigurationH\004\210\001" +
       "\001B\007\n\005_termB\010\n\006_indexB\007\n\005_typeB\007\n\005_dataB\007" +
       "\n\005_conf\"\365\001\n\022AppendEntryRequest\022\025\n\010leader" +
-      "Id\030\001 \001(\tH\000\210\001\001\022\021\n\004term\030\002 \001(\003H\001\210\001\001\022\031\n\014prev" +
-      "LogIndex\030\003 \001(\003H\002\210\001\001\022\030\n\013prevLogTerm\030\004 \001(\003" +
-      "H\003\210\001\001\022\030\n\013commitIndex\030\005 \001(\003H\004\210\001\001\022\037\n\007entri" +
+      "Id\030\001 \001(\tH\000\210\001\001\022\021\n\004term\030\002 \001(\004H\001\210\001\001\022\031\n\014prev" +
+      "LogIndex\030\003 \001(\004H\002\210\001\001\022\030\n\013prevLogTerm\030\004 \001(\004" +
+      "H\003\210\001\001\022\030\n\013commitIndex\030\005 \001(\004H\004\210\001\001\022\037\n\007entri" +
       "es\030\006 \003(\0132\016.raft.LogEntryB\013\n\t_leaderIdB\007\n" +
       "\005_termB\017\n\r_prevLogIndexB\016\n\014_prevLogTermB" +
-      "\016\n\014_commitIndex\"S\n\023AppendEntryResponse\022\021" +
-      "\n\004term\030\001 \001(\003H\000\210\001\001\022\024\n\007success\030\002 \001(\010H\001\210\001\001B" +
-      "\007\n\005_termB\n\n\010_success\"\213\001\n\016ForwardRequest\022" +
-      "#\n\004type\030\001 \001(\0162\020.raft.FowardTypeH\000\210\001\001\022\021\n\004" +
-      "data\030\002 \001(\014H\001\210\001\001\022&\n\004conf\030\003 \001(\0132\023.raft.Con" +
-      "figurationH\002\210\001\001B\007\n\005_typeB\007\n\005_dataB\007\n\005_co" +
-      "nf\"N\n\016FowardResponse\022\024\n\007success\030\001 \001(\010H\000\210" +
-      "\001\001\022\021\n\004data\030\002 \001(\014H\001\210\001\001B\n\n\010_successB\007\n\005_da" +
-      "ta\"\251\001\n\013VoteRequest\022\030\n\013candidateId\030\001 \001(\tH" +
-      "\000\210\001\001\022\021\n\004term\030\002 \001(\003H\001\210\001\001\022\031\n\014lastLogIndex\030" +
-      "\003 \001(\003H\002\210\001\001\022\030\n\013lastLogTerm\030\004 \001(\003H\003\210\001\001B\016\n\014" +
-      "_candidateIdB\007\n\005_termB\017\n\r_lastLogIndexB\016" +
-      "\n\014_lastLogTerm\"T\n\014VoteResponse\022\021\n\004term\030\001" +
-      " \001(\003H\000\210\001\001\022\030\n\013voteGranted\030\002 \001(\010H\001\210\001\001B\007\n\005_" +
-      "termB\016\n\014_voteGranted\"\232\002\n\026InstallSnapshot" +
-      "Request\022\021\n\004term\030\001 \001(\003H\000\210\001\001\022\025\n\010leaderId\030\002" +
-      " \001(\tH\001\210\001\001\022\036\n\021lastIncludedIndex\030\003 \001(\003H\002\210\001" +
-      "\001\022\035\n\020lastIncludedTerm\030\004 \001(\003H\003\210\001\001\022\023\n\006offs" +
-      "et\030\005 \001(\003H\004\210\001\001\022\021\n\004data\030\006 \001(\014H\005\210\001\001\022\021\n\004done" +
-      "\030\007 \001(\010H\006\210\001\001B\007\n\005_termB\013\n\t_leaderIdB\024\n\022_la" +
-      "stIncludedIndexB\023\n\021_lastIncludedTermB\t\n\007" +
-      "_offsetB\007\n\005_dataB\007\n\005_done\"5\n\027InstallSnap" +
-      "shotResponse\022\021\n\004term\030\001 \001(\003H\000\210\001\001B\007\n\005_term" +
-      "*4\n\tRaftState\022\014\n\010FOLLOWER\020\000\022\r\n\tCANDIDATE" +
-      "\020\001\022\n\n\006LEADER\020\002*)\n\tOperation\022\007\n\003GET\020\000\022\007\n\003" +
-      "ADD\020\001\022\n\n\006DELETE\020\002*+\n\nFowardType\022\t\n\005WRITE" +
-      "\020\000\022\010\n\004READ\020\001\022\010\n\004CONF\020\002*(\n\tEntryType\022\010\n\004D" +
-      "ADA\020\000\022\021\n\rCONFIGURATION\020\001B(\n\033top.chaohaor" +
-      "ui.raftkv.protoB\tRaftProtob\006proto3"
+      "\016\n\014_commitIndex\"\203\001\n\023AppendEntryResponse\022" +
+      "\021\n\004term\030\001 \001(\004H\000\210\001\001\022\024\n\007success\030\002 \001(\010H\001\210\001\001" +
+      "\022\033\n\016last_log_index\030\003 \001(\004H\002\210\001\001B\007\n\005_termB\n" +
+      "\n\010_successB\021\n\017_last_log_index\"\213\001\n\016Forwar" +
+      "dRequest\022#\n\004type\030\001 \001(\0162\020.raft.FowardType" +
+      "H\000\210\001\001\022\021\n\004data\030\002 \001(\014H\001\210\001\001\022&\n\004conf\030\003 \001(\0132\023" +
+      ".raft.ConfigurationH\002\210\001\001B\007\n\005_typeB\007\n\005_da" +
+      "taB\007\n\005_conf\"N\n\016FowardResponse\022\024\n\007success" +
+      "\030\001 \001(\010H\000\210\001\001\022\021\n\004data\030\002 \001(\014H\001\210\001\001B\n\n\010_succe" +
+      "ssB\007\n\005_data\"\251\001\n\013VoteRequest\022\030\n\013candidate" +
+      "Id\030\001 \001(\tH\000\210\001\001\022\021\n\004term\030\002 \001(\004H\001\210\001\001\022\031\n\014last" +
+      "LogIndex\030\003 \001(\004H\002\210\001\001\022\030\n\013lastLogTerm\030\004 \001(\004" +
+      "H\003\210\001\001B\016\n\014_candidateIdB\007\n\005_termB\017\n\r_lastL" +
+      "ogIndexB\016\n\014_lastLogTerm\"T\n\014VoteResponse\022" +
+      "\021\n\004term\030\001 \001(\004H\000\210\001\001\022\030\n\013voteGranted\030\002 \001(\010H" +
+      "\001\210\001\001B\007\n\005_termB\016\n\014_voteGranted\"\232\002\n\026Instal" +
+      "lSnapshotRequest\022\021\n\004term\030\001 \001(\004H\000\210\001\001\022\025\n\010l" +
+      "eaderId\030\002 \001(\tH\001\210\001\001\022\036\n\021lastIncludedIndex\030" +
+      "\003 \001(\004H\002\210\001\001\022\035\n\020lastIncludedTerm\030\004 \001(\004H\003\210\001" +
+      "\001\022\023\n\006offset\030\005 \001(\004H\004\210\001\001\022\021\n\004data\030\006 \001(\014H\005\210\001" +
+      "\001\022\021\n\004done\030\007 \001(\010H\006\210\001\001B\007\n\005_termB\013\n\t_leader" +
+      "IdB\024\n\022_lastIncludedIndexB\023\n\021_lastInclude" +
+      "dTermB\t\n\007_offsetB\007\n\005_dataB\007\n\005_done\"5\n\027In" +
+      "stallSnapshotResponse\022\021\n\004term\030\001 \001(\004H\000\210\001\001" +
+      "B\007\n\005_term*4\n\tRaftState\022\014\n\010FOLLOWER\020\000\022\r\n\t" +
+      "CANDIDATE\020\001\022\n\n\006LEADER\020\002*)\n\tOperation\022\007\n\003" +
+      "GET\020\000\022\007\n\003ADD\020\001\022\n\n\006DELETE\020\002*+\n\nFowardType" +
+      "\022\t\n\005WRITE\020\000\022\010\n\004READ\020\001\022\010\n\004CONF\020\002*(\n\tEntry" +
+      "Type\022\010\n\004DADA\020\000\022\021\n\rCONFIGURATION\020\001B(\n\033top" +
+      ".chaohaorui.raftkv.protoB\tRaftProtob\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9853,7 +9955,7 @@ public final class RaftProto {
     internal_static_raft_AppendEntryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_AppendEntryResponse_descriptor,
-        new java.lang.String[] { "Term", "Success", "Term", "Success", });
+        new java.lang.String[] { "Term", "Success", "LastLogIndex", "Term", "Success", "LastLogIndex", });
     internal_static_raft_ForwardRequest_descriptor =
       getDescriptor().getMessageTypes().get(5);
     internal_static_raft_ForwardRequest_fieldAccessorTable = new
