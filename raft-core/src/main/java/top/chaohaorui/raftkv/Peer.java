@@ -1,5 +1,8 @@
 package top.chaohaorui.raftkv;
 
+import com.baidu.brpc.client.BrpcProxy;
+import com.baidu.brpc.client.RpcClient;
+import com.baidu.brpc.client.channel.Endpoint;
 import lombok.Data;
 import top.chaohaorui.raftkv.service.ConsensusService;
 
@@ -15,8 +18,15 @@ public class Peer {
     private boolean isLocal;
     private boolean isVoteGranted;
     public AtomicBoolean isInstallingSnapshot = new AtomicBoolean(false);
+    private RpcClient rpcClient;
 
     public Peer(String id, String ip, int port,boolean isLocal) {
+        this.id = id;
+        this.ip = ip;
+        this.port = port;
+        this.isLocal = isLocal;
+        rpcClient = new RpcClient(new Endpoint(ip, port));
+        this.consensusService = BrpcProxy.getProxy(rpcClient, ConsensusService.class);
     }
 
     public void init() {

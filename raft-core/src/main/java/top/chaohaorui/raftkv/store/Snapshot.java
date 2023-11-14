@@ -6,5 +6,8 @@ public interface Snapshot {
 
     byte[] getSnapshotBytes(long offset, long intervalSize);
 
+
+    void writeSnapshotBytes(long offset,byte[] data,boolean isLast);
+
     long getSnapshotSize();
 }

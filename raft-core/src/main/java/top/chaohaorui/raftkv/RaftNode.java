@@ -1,9 +1,13 @@
 package top.chaohaorui.raftkv;
 
 import com.google.protobuf.ByteString;
-import org.apache.log4j.LogMF;
-import org.apache.log4j.Logger;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.LoggerFactory;
 import top.chaohaorui.raftkv.proto.RaftProto;
+import top.chaohaorui.raftkv.service.ConsensusService;
+import top.chaohaorui.raftkv.service.impl.DefaultConSensusService;
 import top.chaohaorui.raftkv.store.LogModule;
 
 import java.io.IOException;
@@ -29,13 +33,19 @@ public class RaftNode {
     private ScheduledFuture<Boolean> heartbeatFuture;
     private ReentrantLock stateMachineLock;
     private ReentrantLock parkLock;
+    private ReentrantLock stepDownLock;
     private Queue<Pair<Long,Condition>> parkQueue;
+    public ConsensusService consensusService;
 
     private Map<String,Long> nextIndex;
     private Map<String,Long> matchIndex;
     private long commitIndex;
-    private static Logger logger = Logger.getLogger(RaftNode.class);
+    private static Logger logger = LoggerFactory.getLogger(RaftNode.class);
     private String leaderId;
+
+    public void setCommitIndex(long newCommitIndex) {
+        this.commitIndex = newCommitIndex;
+    }
 
     public enum NodeState{
         FOLLOWER,
@@ -60,7 +70,7 @@ public class RaftNode {
             return value;
         }
     }
-    public RaftNode(String multiAddress,String localid,StateMachine stateMachine){
+    public RaftNode(String multiAddress,String localid,StateMachine stateMachine,LogModule logModule){
         String[] address = multiAddress.split(",");
         for (String s : address) {
             String[] split = s.split(":");
@@ -77,6 +87,9 @@ public class RaftNode {
         parkQueue = new ConcurrentLinkedDeque<>();
         stateMachineLock = new ReentrantLock();
         parkLock = new ReentrantLock();
+        stepDownLock = new ReentrantLock();
+        consensusService = new DefaultConSensusService(this);
+        this.logModule = logModule;
         try {
             RaftProperties.load(RaftNode.class.getClassLoader().getResourceAsStream("raft.properties"));
         } catch (IOException e) {
@@ -104,6 +117,19 @@ public class RaftNode {
                 new ThreadPoolExecutor.CallerRunsPolicy()
         );
         completionService = new ExecutorCompletionService<>(threadPoolExecutor);
+        loadData();
+    }
+
+    private void loadData() {
+        stateMachine.readSnapshot(this.RaftProperties.getProperty("snapshot.dir"));
+        long commitIndex = logModule.getCommitIndex();
+        long lastIncludedIndex = logModule.getLastIncludedIndex();
+        logModule.truncatePrefix(lastIncludedIndex + 1);
+        long firstLogIndex = logModule.getFirstLogIndex();
+        for (long i = firstLogIndex; i < commitIndex; i++) {
+            RaftProto.LogEntry entry = logModule.getEntry(i);
+            stateMachine.apply(entry.getData().toByteArray());
+        }
     }
 
     private void resetElectionTimer() {
@@ -200,12 +226,12 @@ public class RaftNode {
         );
     }
 
-    private void stepdown(long term) {
+    public void stepdown(long term) {
         if(currTerm > term){
             logger.warn("can not stepdown because term is smaller than current term");
             return;
         }
-        logModule.getMetaDataLock().lock();
+        stepDownLock.lock();
         try {
             if(currTerm < term){
                 currTerm = term;
@@ -217,7 +243,7 @@ public class RaftNode {
         }catch (Exception e){
             e.printStackTrace();
         }finally {
-            logModule.getMetaDataLock().unlock();
+            stepDownLock.unlock();
         }
     }
 
@@ -316,6 +342,7 @@ public class RaftNode {
                 stateMachine.apply(entry);
             }
             commitIndex = newCommitIndex;
+            logModule.updateMetaData(null,null,null,newCommitIndex);
             while (parkQueue.peek().getKey() <= commitIndex){
                 Pair<Long,Condition> pair = parkQueue.poll();
                 pair.getValue().signal();
@@ -331,7 +358,7 @@ public class RaftNode {
     private boolean tryInstallSnapshot(Peer peer) {
         if(peer.isInstallingSnapshot.compareAndSet(false,true)){
             long offset = 0;
-            long intervalSize = Long.parseLong((String) RaftProperties.get("snapshot.transmit.size"));
+            long intervalSize = Long.parseLong((String) RaftProperties.getOrDefault("snapshot.transmit.size",1));
             long totalSize = logModule.getSnapshot().getSnapshotSize();
             logModule.getSnapshotLock().lock();
             try {
@@ -410,6 +437,53 @@ public class RaftNode {
 
     public void applyConfigration(RaftProto.Configuration configuration){
 
+    }
+
+
+
+    public long getCurrTerm() {
+        return currTerm;
+    }
+
+    public String getVotedFor() {
+        return votedFor;
+    }
+
+
+    public void setVoteFor(String voteFor) {
+        this.votedFor = voteFor;
+    }
+
+    public NodeState getStatus() {
+        return status;
+    }
+
+    public LogModule getLogModule() {
+        return logModule;
+    }
+
+    public Properties getRaftProperties() {
+        return RaftProperties;
+    }
+
+    public StateMachine getStateMachine() {
+        return stateMachine;
+    }
+
+    public long getCommitIndex() {
+        return commitIndex;
+    }
+
+    public static Logger getLogger() {
+        return logger;
+    }
+
+    public String getLeaderId() {
+        return leaderId;
+    }
+
+    public void setLeaderId(String leaderId) {
+        this.leaderId = leaderId;
     }
 
 }

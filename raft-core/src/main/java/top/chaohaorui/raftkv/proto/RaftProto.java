@@ -9318,6 +9318,28 @@ public final class RaftProto {
      * @return The term.
      */
     long getTerm();
+
+    /**
+     * <code>optional uint64 lastIncludedIndex = 2;</code>
+     * @return Whether the lastIncludedIndex field is set.
+     */
+    boolean hasLastIncludedIndex();
+    /**
+     * <code>optional uint64 lastIncludedIndex = 2;</code>
+     * @return The lastIncludedIndex.
+     */
+    long getLastIncludedIndex();
+
+    /**
+     * <code>optional uint64 lastIncludedTerm = 3;</code>
+     * @return Whether the lastIncludedTerm field is set.
+     */
+    boolean hasLastIncludedTerm();
+    /**
+     * <code>optional uint64 lastIncludedTerm = 3;</code>
+     * @return The lastIncludedTerm.
+     */
+    long getLastIncludedTerm();
   }
   /**
    * Protobuf type {@code raft.InstallSnapshotResponse}
@@ -9374,6 +9396,44 @@ public final class RaftProto {
       return term_;
     }
 
+    public static final int LASTINCLUDEDINDEX_FIELD_NUMBER = 2;
+    private long lastIncludedIndex_ = 0L;
+    /**
+     * <code>optional uint64 lastIncludedIndex = 2;</code>
+     * @return Whether the lastIncludedIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastIncludedIndex() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional uint64 lastIncludedIndex = 2;</code>
+     * @return The lastIncludedIndex.
+     */
+    @java.lang.Override
+    public long getLastIncludedIndex() {
+      return lastIncludedIndex_;
+    }
+
+    public static final int LASTINCLUDEDTERM_FIELD_NUMBER = 3;
+    private long lastIncludedTerm_ = 0L;
+    /**
+     * <code>optional uint64 lastIncludedTerm = 3;</code>
+     * @return Whether the lastIncludedTerm field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastIncludedTerm() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional uint64 lastIncludedTerm = 3;</code>
+     * @return The lastIncludedTerm.
+     */
+    @java.lang.Override
+    public long getLastIncludedTerm() {
+      return lastIncludedTerm_;
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -9391,6 +9451,12 @@ public final class RaftProto {
       if (((bitField0_ & 0x00000001) != 0)) {
         output.writeUInt64(1, term_);
       }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        output.writeUInt64(2, lastIncludedIndex_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeUInt64(3, lastIncludedTerm_);
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -9403,6 +9469,14 @@ public final class RaftProto {
       if (((bitField0_ & 0x00000001) != 0)) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt64Size(1, term_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(2, lastIncludedIndex_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, lastIncludedTerm_);
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSize = size;
@@ -9424,6 +9498,16 @@ public final class RaftProto {
         if (getTerm()
             != other.getTerm()) return false;
       }
+      if (hasLastIncludedIndex() != other.hasLastIncludedIndex()) return false;
+      if (hasLastIncludedIndex()) {
+        if (getLastIncludedIndex()
+            != other.getLastIncludedIndex()) return false;
+      }
+      if (hasLastIncludedTerm() != other.hasLastIncludedTerm()) return false;
+      if (hasLastIncludedTerm()) {
+        if (getLastIncludedTerm()
+            != other.getLastIncludedTerm()) return false;
+      }
       if (!getUnknownFields().equals(other.getUnknownFields())) return false;
       return true;
     }
@@ -9439,6 +9523,16 @@ public final class RaftProto {
         hash = (37 * hash) + TERM_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getTerm());
+      }
+      if (hasLastIncludedIndex()) {
+        hash = (37 * hash) + LASTINCLUDEDINDEX_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastIncludedIndex());
+      }
+      if (hasLastIncludedTerm()) {
+        hash = (37 * hash) + LASTINCLUDEDTERM_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastIncludedTerm());
       }
       hash = (29 * hash) + getUnknownFields().hashCode();
       memoizedHashCode = hash;
@@ -9572,6 +9666,8 @@ public final class RaftProto {
         super.clear();
         bitField0_ = 0;
         term_ = 0L;
+        lastIncludedIndex_ = 0L;
+        lastIncludedTerm_ = 0L;
         return this;
       }
 
@@ -9609,6 +9705,14 @@ public final class RaftProto {
         if (((from_bitField0_ & 0x00000001) != 0)) {
           result.term_ = term_;
           to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.lastIncludedIndex_ = lastIncludedIndex_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.lastIncludedTerm_ = lastIncludedTerm_;
+          to_bitField0_ |= 0x00000004;
         }
         result.bitField0_ |= to_bitField0_;
       }
@@ -9660,6 +9764,12 @@ public final class RaftProto {
         if (other.hasTerm()) {
           setTerm(other.getTerm());
         }
+        if (other.hasLastIncludedIndex()) {
+          setLastIncludedIndex(other.getLastIncludedIndex());
+        }
+        if (other.hasLastIncludedTerm()) {
+          setLastIncludedTerm(other.getLastIncludedTerm());
+        }
         this.mergeUnknownFields(other.getUnknownFields());
         onChanged();
         return this;
@@ -9691,6 +9801,16 @@ public final class RaftProto {
                 bitField0_ |= 0x00000001;
                 break;
               } // case 8
+              case 16: {
+                lastIncludedIndex_ = input.readUInt64();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 16
+              case 24: {
+                lastIncludedTerm_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
               default: {
                 if (!super.parseUnknownField(input, extensionRegistry, tag)) {
                   done = true; // was an endgroup tag
@@ -9744,6 +9864,86 @@ public final class RaftProto {
       public Builder clearTerm() {
         bitField0_ = (bitField0_ & ~0x00000001);
         term_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastIncludedIndex_ ;
+      /**
+       * <code>optional uint64 lastIncludedIndex = 2;</code>
+       * @return Whether the lastIncludedIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastIncludedIndex() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional uint64 lastIncludedIndex = 2;</code>
+       * @return The lastIncludedIndex.
+       */
+      @java.lang.Override
+      public long getLastIncludedIndex() {
+        return lastIncludedIndex_;
+      }
+      /**
+       * <code>optional uint64 lastIncludedIndex = 2;</code>
+       * @param value The lastIncludedIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastIncludedIndex(long value) {
+
+        lastIncludedIndex_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 lastIncludedIndex = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastIncludedIndex() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        lastIncludedIndex_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastIncludedTerm_ ;
+      /**
+       * <code>optional uint64 lastIncludedTerm = 3;</code>
+       * @return Whether the lastIncludedTerm field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastIncludedTerm() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional uint64 lastIncludedTerm = 3;</code>
+       * @return The lastIncludedTerm.
+       */
+      @java.lang.Override
+      public long getLastIncludedTerm() {
+        return lastIncludedTerm_;
+      }
+      /**
+       * <code>optional uint64 lastIncludedTerm = 3;</code>
+       * @param value The lastIncludedTerm to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastIncludedTerm(long value) {
+
+        lastIncludedTerm_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 lastIncludedTerm = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastIncludedTerm() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        lastIncludedTerm_ = 0L;
         onChanged();
         return this;
       }
@@ -9912,15 +10112,17 @@ public final class RaftProto {
       "\001\022\023\n\006offset\030\005 \001(\004H\004\210\001\001\022\021\n\004data\030\006 \001(\014H\005\210\001" +
       "\001\022\021\n\004done\030\007 \001(\010H\006\210\001\001B\007\n\005_termB\013\n\t_leader" +
       "IdB\024\n\022_lastIncludedIndexB\023\n\021_lastInclude" +
-      "dTermB\t\n\007_offsetB\007\n\005_dataB\007\n\005_done\"5\n\027In" +
-      "stallSnapshotResponse\022\021\n\004term\030\001 \001(\004H\000\210\001\001" +
-      "B\007\n\005_term*4\n\tRaftState\022\014\n\010FOLLOWER\020\000\022\r\n\t" +
-      "CANDIDATE\020\001\022\n\n\006LEADER\020\002*)\n\tOperation\022\007\n\003" +
-      "GET\020\000\022\007\n\003ADD\020\001\022\n\n\006DELETE\020\002*+\n\nFowardType" +
-      "\022\t\n\005WRITE\020\000\022\010\n\004READ\020\001\022\010\n\004CONF\020\002*(\n\tEntry" +
-      "Type\022\010\n\004DADA\020\000\022\021\n\rCONFIGURATION\020\001B(\n\033top" +
-      ".chaohaorui.raftkv.protoB\tRaftProtob\006pro" +
-      "to3"
+      "dTermB\t\n\007_offsetB\007\n\005_dataB\007\n\005_done\"\237\001\n\027I" +
+      "nstallSnapshotResponse\022\021\n\004term\030\001 \001(\004H\000\210\001" +
+      "\001\022\036\n\021lastIncludedIndex\030\002 \001(\004H\001\210\001\001\022\035\n\020las" +
+      "tIncludedTerm\030\003 \001(\004H\002\210\001\001B\007\n\005_termB\024\n\022_la" +
+      "stIncludedIndexB\023\n\021_lastIncludedTerm*4\n\t" +
+      "RaftState\022\014\n\010FOLLOWER\020\000\022\r\n\tCANDIDATE\020\001\022\n" +
+      "\n\006LEADER\020\002*)\n\tOperation\022\007\n\003GET\020\000\022\007\n\003ADD\020" +
+      "\001\022\n\n\006DELETE\020\002*+\n\nFowardType\022\t\n\005WRITE\020\000\022\010" +
+      "\n\004READ\020\001\022\010\n\004CONF\020\002*(\n\tEntryType\022\010\n\004DADA\020" +
+      "\000\022\021\n\rCONFIGURATION\020\001B(\n\033top.chaohaorui.r" +
+      "aftkv.protoB\tRaftProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -9991,7 +10193,7 @@ public final class RaftProto {
     internal_static_raft_InstallSnapshotResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_InstallSnapshotResponse_descriptor,
-        new java.lang.String[] { "Term", "Term", });
+        new java.lang.String[] { "Term", "LastIncludedIndex", "LastIncludedTerm", "Term", "LastIncludedIndex", "LastIncludedTerm", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

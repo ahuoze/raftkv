@@ -14,6 +14,16 @@ public abstract class LogModule {
     private long lastIncludedIndex;
     private long lastIncludedTerm;
 
+    public long getCommitIndex() {
+        return commitIndex;
+    }
+
+    public void setCommitIndex(long commitIndex) {
+        this.commitIndex = commitIndex;
+    }
+
+    private long commitIndex;
+
     public long getLastIncludedIndex() {
         return lastIncludedIndex;
     }

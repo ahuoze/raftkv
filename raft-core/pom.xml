@@ -27,6 +27,13 @@
             <artifactId>protobuf-java-util</artifactId>
             <version>3.24.0</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.baidu/brpc-java -->
+        <dependency>
+            <groupId>com.baidu</groupId>
+            <artifactId>brpc-java</artifactId>
+            <version>3.0.2</version>
+        </dependency>
+
     </dependencies>
 
 </project>
