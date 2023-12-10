@@ -1327,6 +1327,1386 @@ public final class RaftProto {
 
   }
 
+  public interface MetaDataOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:raft.MetaData)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional uint64 currentTerm = 1;</code>
+     * @return Whether the currentTerm field is set.
+     */
+    boolean hasCurrentTerm();
+    /**
+     * <code>optional uint64 currentTerm = 1;</code>
+     * @return The currentTerm.
+     */
+    long getCurrentTerm();
+
+    /**
+     * <code>optional string votedFor = 2;</code>
+     * @return Whether the votedFor field is set.
+     */
+    boolean hasVotedFor();
+    /**
+     * <code>optional string votedFor = 2;</code>
+     * @return The votedFor.
+     */
+    java.lang.String getVotedFor();
+    /**
+     * <code>optional string votedFor = 2;</code>
+     * @return The bytes for votedFor.
+     */
+    com.google.protobuf.ByteString
+        getVotedForBytes();
+
+    /**
+     * <code>optional uint64 firstLogIndex = 3;</code>
+     * @return Whether the firstLogIndex field is set.
+     */
+    boolean hasFirstLogIndex();
+    /**
+     * <code>optional uint64 firstLogIndex = 3;</code>
+     * @return The firstLogIndex.
+     */
+    long getFirstLogIndex();
+
+    /**
+     * <code>optional uint64 lastLogIndex = 4;</code>
+     * @return Whether the lastLogIndex field is set.
+     */
+    boolean hasLastLogIndex();
+    /**
+     * <code>optional uint64 lastLogIndex = 4;</code>
+     * @return The lastLogIndex.
+     */
+    long getLastLogIndex();
+
+    /**
+     * <code>optional uint64 lastLogTerm = 5;</code>
+     * @return Whether the lastLogTerm field is set.
+     */
+    boolean hasLastLogTerm();
+    /**
+     * <code>optional uint64 lastLogTerm = 5;</code>
+     * @return The lastLogTerm.
+     */
+    long getLastLogTerm();
+
+    /**
+     * <code>optional uint64 commitIndex = 6;</code>
+     * @return Whether the commitIndex field is set.
+     */
+    boolean hasCommitIndex();
+    /**
+     * <code>optional uint64 commitIndex = 6;</code>
+     * @return The commitIndex.
+     */
+    long getCommitIndex();
+
+    /**
+     * <code>optional uint64 lastIncludedIndex = 7;</code>
+     * @return Whether the lastIncludedIndex field is set.
+     */
+    boolean hasLastIncludedIndex();
+    /**
+     * <code>optional uint64 lastIncludedIndex = 7;</code>
+     * @return The lastIncludedIndex.
+     */
+    long getLastIncludedIndex();
+
+    /**
+     * <code>optional uint64 lastIncludedTerm = 8;</code>
+     * @return Whether the lastIncludedTerm field is set.
+     */
+    boolean hasLastIncludedTerm();
+    /**
+     * <code>optional uint64 lastIncludedTerm = 8;</code>
+     * @return The lastIncludedTerm.
+     */
+    long getLastIncludedTerm();
+
+    /**
+     * <code>optional uint32 snap_index = 9;</code>
+     * @return Whether the snapIndex field is set.
+     */
+    boolean hasSnapIndex();
+    /**
+     * <code>optional uint32 snap_index = 9;</code>
+     * @return The snapIndex.
+     */
+    int getSnapIndex();
+  }
+  /**
+   * Protobuf type {@code raft.MetaData}
+   */
+  public static final class MetaData extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:raft.MetaData)
+      MetaDataOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use MetaData.newBuilder() to construct.
+    private MetaData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private MetaData() {
+      votedFor_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MetaData();
+    }
+
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return top.chaohaorui.raftkv.proto.RaftProto.internal_static_raft_MetaData_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return top.chaohaorui.raftkv.proto.RaftProto.internal_static_raft_MetaData_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              top.chaohaorui.raftkv.proto.RaftProto.MetaData.class, top.chaohaorui.raftkv.proto.RaftProto.MetaData.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int CURRENTTERM_FIELD_NUMBER = 1;
+    private long currentTerm_ = 0L;
+    /**
+     * <code>optional uint64 currentTerm = 1;</code>
+     * @return Whether the currentTerm field is set.
+     */
+    @java.lang.Override
+    public boolean hasCurrentTerm() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>optional uint64 currentTerm = 1;</code>
+     * @return The currentTerm.
+     */
+    @java.lang.Override
+    public long getCurrentTerm() {
+      return currentTerm_;
+    }
+
+    public static final int VOTEDFOR_FIELD_NUMBER = 2;
+    @SuppressWarnings("serial")
+    private volatile java.lang.Object votedFor_ = "";
+    /**
+     * <code>optional string votedFor = 2;</code>
+     * @return Whether the votedFor field is set.
+     */
+    @java.lang.Override
+    public boolean hasVotedFor() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>optional string votedFor = 2;</code>
+     * @return The votedFor.
+     */
+    @java.lang.Override
+    public java.lang.String getVotedFor() {
+      java.lang.Object ref = votedFor_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        votedFor_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string votedFor = 2;</code>
+     * @return The bytes for votedFor.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getVotedForBytes() {
+      java.lang.Object ref = votedFor_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        votedFor_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int FIRSTLOGINDEX_FIELD_NUMBER = 3;
+    private long firstLogIndex_ = 0L;
+    /**
+     * <code>optional uint64 firstLogIndex = 3;</code>
+     * @return Whether the firstLogIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasFirstLogIndex() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional uint64 firstLogIndex = 3;</code>
+     * @return The firstLogIndex.
+     */
+    @java.lang.Override
+    public long getFirstLogIndex() {
+      return firstLogIndex_;
+    }
+
+    public static final int LASTLOGINDEX_FIELD_NUMBER = 4;
+    private long lastLogIndex_ = 0L;
+    /**
+     * <code>optional uint64 lastLogIndex = 4;</code>
+     * @return Whether the lastLogIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastLogIndex() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <code>optional uint64 lastLogIndex = 4;</code>
+     * @return The lastLogIndex.
+     */
+    @java.lang.Override
+    public long getLastLogIndex() {
+      return lastLogIndex_;
+    }
+
+    public static final int LASTLOGTERM_FIELD_NUMBER = 5;
+    private long lastLogTerm_ = 0L;
+    /**
+     * <code>optional uint64 lastLogTerm = 5;</code>
+     * @return Whether the lastLogTerm field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastLogTerm() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>optional uint64 lastLogTerm = 5;</code>
+     * @return The lastLogTerm.
+     */
+    @java.lang.Override
+    public long getLastLogTerm() {
+      return lastLogTerm_;
+    }
+
+    public static final int COMMITINDEX_FIELD_NUMBER = 6;
+    private long commitIndex_ = 0L;
+    /**
+     * <code>optional uint64 commitIndex = 6;</code>
+     * @return Whether the commitIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasCommitIndex() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <code>optional uint64 commitIndex = 6;</code>
+     * @return The commitIndex.
+     */
+    @java.lang.Override
+    public long getCommitIndex() {
+      return commitIndex_;
+    }
+
+    public static final int LASTINCLUDEDINDEX_FIELD_NUMBER = 7;
+    private long lastIncludedIndex_ = 0L;
+    /**
+     * <code>optional uint64 lastIncludedIndex = 7;</code>
+     * @return Whether the lastIncludedIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastIncludedIndex() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional uint64 lastIncludedIndex = 7;</code>
+     * @return The lastIncludedIndex.
+     */
+    @java.lang.Override
+    public long getLastIncludedIndex() {
+      return lastIncludedIndex_;
+    }
+
+    public static final int LASTINCLUDEDTERM_FIELD_NUMBER = 8;
+    private long lastIncludedTerm_ = 0L;
+    /**
+     * <code>optional uint64 lastIncludedTerm = 8;</code>
+     * @return Whether the lastIncludedTerm field is set.
+     */
+    @java.lang.Override
+    public boolean hasLastIncludedTerm() {
+      return ((bitField0_ & 0x00000080) != 0);
+    }
+    /**
+     * <code>optional uint64 lastIncludedTerm = 8;</code>
+     * @return The lastIncludedTerm.
+     */
+    @java.lang.Override
+    public long getLastIncludedTerm() {
+      return lastIncludedTerm_;
+    }
+
+    public static final int SNAP_INDEX_FIELD_NUMBER = 9;
+    private int snapIndex_ = 0;
+    /**
+     * <code>optional uint32 snap_index = 9;</code>
+     * @return Whether the snapIndex field is set.
+     */
+    @java.lang.Override
+    public boolean hasSnapIndex() {
+      return ((bitField0_ & 0x00000100) != 0);
+    }
+    /**
+     * <code>optional uint32 snap_index = 9;</code>
+     * @return The snapIndex.
+     */
+    @java.lang.Override
+    public int getSnapIndex() {
+      return snapIndex_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) != 0)) {
+        output.writeUInt64(1, currentTerm_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, votedFor_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        output.writeUInt64(3, firstLogIndex_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        output.writeUInt64(4, lastLogIndex_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        output.writeUInt64(5, lastLogTerm_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        output.writeUInt64(6, commitIndex_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        output.writeUInt64(7, lastIncludedIndex_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        output.writeUInt64(8, lastIncludedTerm_);
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        output.writeUInt32(9, snapIndex_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(1, currentTerm_);
+      }
+      if (((bitField0_ & 0x00000002) != 0)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, votedFor_);
+      }
+      if (((bitField0_ & 0x00000004) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(3, firstLogIndex_);
+      }
+      if (((bitField0_ & 0x00000008) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(4, lastLogIndex_);
+      }
+      if (((bitField0_ & 0x00000010) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(5, lastLogTerm_);
+      }
+      if (((bitField0_ & 0x00000020) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(6, commitIndex_);
+      }
+      if (((bitField0_ & 0x00000040) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(7, lastIncludedIndex_);
+      }
+      if (((bitField0_ & 0x00000080) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt64Size(8, lastIncludedTerm_);
+      }
+      if (((bitField0_ & 0x00000100) != 0)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeUInt32Size(9, snapIndex_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof top.chaohaorui.raftkv.proto.RaftProto.MetaData)) {
+        return super.equals(obj);
+      }
+      top.chaohaorui.raftkv.proto.RaftProto.MetaData other = (top.chaohaorui.raftkv.proto.RaftProto.MetaData) obj;
+
+      if (hasCurrentTerm() != other.hasCurrentTerm()) return false;
+      if (hasCurrentTerm()) {
+        if (getCurrentTerm()
+            != other.getCurrentTerm()) return false;
+      }
+      if (hasVotedFor() != other.hasVotedFor()) return false;
+      if (hasVotedFor()) {
+        if (!getVotedFor()
+            .equals(other.getVotedFor())) return false;
+      }
+      if (hasFirstLogIndex() != other.hasFirstLogIndex()) return false;
+      if (hasFirstLogIndex()) {
+        if (getFirstLogIndex()
+            != other.getFirstLogIndex()) return false;
+      }
+      if (hasLastLogIndex() != other.hasLastLogIndex()) return false;
+      if (hasLastLogIndex()) {
+        if (getLastLogIndex()
+            != other.getLastLogIndex()) return false;
+      }
+      if (hasLastLogTerm() != other.hasLastLogTerm()) return false;
+      if (hasLastLogTerm()) {
+        if (getLastLogTerm()
+            != other.getLastLogTerm()) return false;
+      }
+      if (hasCommitIndex() != other.hasCommitIndex()) return false;
+      if (hasCommitIndex()) {
+        if (getCommitIndex()
+            != other.getCommitIndex()) return false;
+      }
+      if (hasLastIncludedIndex() != other.hasLastIncludedIndex()) return false;
+      if (hasLastIncludedIndex()) {
+        if (getLastIncludedIndex()
+            != other.getLastIncludedIndex()) return false;
+      }
+      if (hasLastIncludedTerm() != other.hasLastIncludedTerm()) return false;
+      if (hasLastIncludedTerm()) {
+        if (getLastIncludedTerm()
+            != other.getLastIncludedTerm()) return false;
+      }
+      if (hasSnapIndex() != other.hasSnapIndex()) return false;
+      if (hasSnapIndex()) {
+        if (getSnapIndex()
+            != other.getSnapIndex()) return false;
+      }
+      if (!getUnknownFields().equals(other.getUnknownFields())) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (hasCurrentTerm()) {
+        hash = (37 * hash) + CURRENTTERM_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCurrentTerm());
+      }
+      if (hasVotedFor()) {
+        hash = (37 * hash) + VOTEDFOR_FIELD_NUMBER;
+        hash = (53 * hash) + getVotedFor().hashCode();
+      }
+      if (hasFirstLogIndex()) {
+        hash = (37 * hash) + FIRSTLOGINDEX_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getFirstLogIndex());
+      }
+      if (hasLastLogIndex()) {
+        hash = (37 * hash) + LASTLOGINDEX_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastLogIndex());
+      }
+      if (hasLastLogTerm()) {
+        hash = (37 * hash) + LASTLOGTERM_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastLogTerm());
+      }
+      if (hasCommitIndex()) {
+        hash = (37 * hash) + COMMITINDEX_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCommitIndex());
+      }
+      if (hasLastIncludedIndex()) {
+        hash = (37 * hash) + LASTINCLUDEDINDEX_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastIncludedIndex());
+      }
+      if (hasLastIncludedTerm()) {
+        hash = (37 * hash) + LASTINCLUDEDTERM_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getLastIncludedTerm());
+      }
+      if (hasSnapIndex()) {
+        hash = (37 * hash) + SNAP_INDEX_FIELD_NUMBER;
+        hash = (53 * hash) + getSnapIndex();
+      }
+      hash = (29 * hash) + getUnknownFields().hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(top.chaohaorui.raftkv.proto.RaftProto.MetaData prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code raft.MetaData}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:raft.MetaData)
+        top.chaohaorui.raftkv.proto.RaftProto.MetaDataOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return top.chaohaorui.raftkv.proto.RaftProto.internal_static_raft_MetaData_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return top.chaohaorui.raftkv.proto.RaftProto.internal_static_raft_MetaData_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                top.chaohaorui.raftkv.proto.RaftProto.MetaData.class, top.chaohaorui.raftkv.proto.RaftProto.MetaData.Builder.class);
+      }
+
+      // Construct using top.chaohaorui.raftkv.proto.RaftProto.MetaData.newBuilder()
+      private Builder() {
+
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        bitField0_ = 0;
+        currentTerm_ = 0L;
+        votedFor_ = "";
+        firstLogIndex_ = 0L;
+        lastLogIndex_ = 0L;
+        lastLogTerm_ = 0L;
+        commitIndex_ = 0L;
+        lastIncludedIndex_ = 0L;
+        lastIncludedTerm_ = 0L;
+        snapIndex_ = 0;
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return top.chaohaorui.raftkv.proto.RaftProto.internal_static_raft_MetaData_descriptor;
+      }
+
+      @java.lang.Override
+      public top.chaohaorui.raftkv.proto.RaftProto.MetaData getDefaultInstanceForType() {
+        return top.chaohaorui.raftkv.proto.RaftProto.MetaData.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public top.chaohaorui.raftkv.proto.RaftProto.MetaData build() {
+        top.chaohaorui.raftkv.proto.RaftProto.MetaData result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public top.chaohaorui.raftkv.proto.RaftProto.MetaData buildPartial() {
+        top.chaohaorui.raftkv.proto.RaftProto.MetaData result = new top.chaohaorui.raftkv.proto.RaftProto.MetaData(this);
+        if (bitField0_ != 0) { buildPartial0(result); }
+        onBuilt();
+        return result;
+      }
+
+      private void buildPartial0(top.chaohaorui.raftkv.proto.RaftProto.MetaData result) {
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) != 0)) {
+          result.currentTerm_ = currentTerm_;
+          to_bitField0_ |= 0x00000001;
+        }
+        if (((from_bitField0_ & 0x00000002) != 0)) {
+          result.votedFor_ = votedFor_;
+          to_bitField0_ |= 0x00000002;
+        }
+        if (((from_bitField0_ & 0x00000004) != 0)) {
+          result.firstLogIndex_ = firstLogIndex_;
+          to_bitField0_ |= 0x00000004;
+        }
+        if (((from_bitField0_ & 0x00000008) != 0)) {
+          result.lastLogIndex_ = lastLogIndex_;
+          to_bitField0_ |= 0x00000008;
+        }
+        if (((from_bitField0_ & 0x00000010) != 0)) {
+          result.lastLogTerm_ = lastLogTerm_;
+          to_bitField0_ |= 0x00000010;
+        }
+        if (((from_bitField0_ & 0x00000020) != 0)) {
+          result.commitIndex_ = commitIndex_;
+          to_bitField0_ |= 0x00000020;
+        }
+        if (((from_bitField0_ & 0x00000040) != 0)) {
+          result.lastIncludedIndex_ = lastIncludedIndex_;
+          to_bitField0_ |= 0x00000040;
+        }
+        if (((from_bitField0_ & 0x00000080) != 0)) {
+          result.lastIncludedTerm_ = lastIncludedTerm_;
+          to_bitField0_ |= 0x00000080;
+        }
+        if (((from_bitField0_ & 0x00000100) != 0)) {
+          result.snapIndex_ = snapIndex_;
+          to_bitField0_ |= 0x00000100;
+        }
+        result.bitField0_ |= to_bitField0_;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof top.chaohaorui.raftkv.proto.RaftProto.MetaData) {
+          return mergeFrom((top.chaohaorui.raftkv.proto.RaftProto.MetaData)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(top.chaohaorui.raftkv.proto.RaftProto.MetaData other) {
+        if (other == top.chaohaorui.raftkv.proto.RaftProto.MetaData.getDefaultInstance()) return this;
+        if (other.hasCurrentTerm()) {
+          setCurrentTerm(other.getCurrentTerm());
+        }
+        if (other.hasVotedFor()) {
+          votedFor_ = other.votedFor_;
+          bitField0_ |= 0x00000002;
+          onChanged();
+        }
+        if (other.hasFirstLogIndex()) {
+          setFirstLogIndex(other.getFirstLogIndex());
+        }
+        if (other.hasLastLogIndex()) {
+          setLastLogIndex(other.getLastLogIndex());
+        }
+        if (other.hasLastLogTerm()) {
+          setLastLogTerm(other.getLastLogTerm());
+        }
+        if (other.hasCommitIndex()) {
+          setCommitIndex(other.getCommitIndex());
+        }
+        if (other.hasLastIncludedIndex()) {
+          setLastIncludedIndex(other.getLastIncludedIndex());
+        }
+        if (other.hasLastIncludedTerm()) {
+          setLastIncludedTerm(other.getLastIncludedTerm());
+        }
+        if (other.hasSnapIndex()) {
+          setSnapIndex(other.getSnapIndex());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+                currentTerm_ = input.readUInt64();
+                bitField0_ |= 0x00000001;
+                break;
+              } // case 8
+              case 18: {
+                votedFor_ = input.readStringRequireUtf8();
+                bitField0_ |= 0x00000002;
+                break;
+              } // case 18
+              case 24: {
+                firstLogIndex_ = input.readUInt64();
+                bitField0_ |= 0x00000004;
+                break;
+              } // case 24
+              case 32: {
+                lastLogIndex_ = input.readUInt64();
+                bitField0_ |= 0x00000008;
+                break;
+              } // case 32
+              case 40: {
+                lastLogTerm_ = input.readUInt64();
+                bitField0_ |= 0x00000010;
+                break;
+              } // case 40
+              case 48: {
+                commitIndex_ = input.readUInt64();
+                bitField0_ |= 0x00000020;
+                break;
+              } // case 48
+              case 56: {
+                lastIncludedIndex_ = input.readUInt64();
+                bitField0_ |= 0x00000040;
+                break;
+              } // case 56
+              case 64: {
+                lastIncludedTerm_ = input.readUInt64();
+                bitField0_ |= 0x00000080;
+                break;
+              } // case 64
+              case 72: {
+                snapIndex_ = input.readUInt32();
+                bitField0_ |= 0x00000100;
+                break;
+              } // case 72
+              default: {
+                if (!super.parseUnknownField(input, extensionRegistry, tag)) {
+                  done = true; // was an endgroup tag
+                }
+                break;
+              } // default:
+            } // switch (tag)
+          } // while (!done)
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.unwrapIOException();
+        } finally {
+          onChanged();
+        } // finally
+        return this;
+      }
+      private int bitField0_;
+
+      private long currentTerm_ ;
+      /**
+       * <code>optional uint64 currentTerm = 1;</code>
+       * @return Whether the currentTerm field is set.
+       */
+      @java.lang.Override
+      public boolean hasCurrentTerm() {
+        return ((bitField0_ & 0x00000001) != 0);
+      }
+      /**
+       * <code>optional uint64 currentTerm = 1;</code>
+       * @return The currentTerm.
+       */
+      @java.lang.Override
+      public long getCurrentTerm() {
+        return currentTerm_;
+      }
+      /**
+       * <code>optional uint64 currentTerm = 1;</code>
+       * @param value The currentTerm to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCurrentTerm(long value) {
+
+        currentTerm_ = value;
+        bitField0_ |= 0x00000001;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 currentTerm = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCurrentTerm() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        currentTerm_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object votedFor_ = "";
+      /**
+       * <code>optional string votedFor = 2;</code>
+       * @return Whether the votedFor field is set.
+       */
+      public boolean hasVotedFor() {
+        return ((bitField0_ & 0x00000002) != 0);
+      }
+      /**
+       * <code>optional string votedFor = 2;</code>
+       * @return The votedFor.
+       */
+      public java.lang.String getVotedFor() {
+        java.lang.Object ref = votedFor_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          votedFor_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string votedFor = 2;</code>
+       * @return The bytes for votedFor.
+       */
+      public com.google.protobuf.ByteString
+          getVotedForBytes() {
+        java.lang.Object ref = votedFor_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          votedFor_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string votedFor = 2;</code>
+       * @param value The votedFor to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVotedFor(
+          java.lang.String value) {
+        if (value == null) { throw new NullPointerException(); }
+        votedFor_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string votedFor = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearVotedFor() {
+        votedFor_ = getDefaultInstance().getVotedFor();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string votedFor = 2;</code>
+       * @param value The bytes for votedFor to set.
+       * @return This builder for chaining.
+       */
+      public Builder setVotedForBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) { throw new NullPointerException(); }
+        checkByteStringIsUtf8(value);
+        votedFor_ = value;
+        bitField0_ |= 0x00000002;
+        onChanged();
+        return this;
+      }
+
+      private long firstLogIndex_ ;
+      /**
+       * <code>optional uint64 firstLogIndex = 3;</code>
+       * @return Whether the firstLogIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasFirstLogIndex() {
+        return ((bitField0_ & 0x00000004) != 0);
+      }
+      /**
+       * <code>optional uint64 firstLogIndex = 3;</code>
+       * @return The firstLogIndex.
+       */
+      @java.lang.Override
+      public long getFirstLogIndex() {
+        return firstLogIndex_;
+      }
+      /**
+       * <code>optional uint64 firstLogIndex = 3;</code>
+       * @param value The firstLogIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFirstLogIndex(long value) {
+
+        firstLogIndex_ = value;
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 firstLogIndex = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFirstLogIndex() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        firstLogIndex_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastLogIndex_ ;
+      /**
+       * <code>optional uint64 lastLogIndex = 4;</code>
+       * @return Whether the lastLogIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastLogIndex() {
+        return ((bitField0_ & 0x00000008) != 0);
+      }
+      /**
+       * <code>optional uint64 lastLogIndex = 4;</code>
+       * @return The lastLogIndex.
+       */
+      @java.lang.Override
+      public long getLastLogIndex() {
+        return lastLogIndex_;
+      }
+      /**
+       * <code>optional uint64 lastLogIndex = 4;</code>
+       * @param value The lastLogIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastLogIndex(long value) {
+
+        lastLogIndex_ = value;
+        bitField0_ |= 0x00000008;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 lastLogIndex = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastLogIndex() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        lastLogIndex_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastLogTerm_ ;
+      /**
+       * <code>optional uint64 lastLogTerm = 5;</code>
+       * @return Whether the lastLogTerm field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastLogTerm() {
+        return ((bitField0_ & 0x00000010) != 0);
+      }
+      /**
+       * <code>optional uint64 lastLogTerm = 5;</code>
+       * @return The lastLogTerm.
+       */
+      @java.lang.Override
+      public long getLastLogTerm() {
+        return lastLogTerm_;
+      }
+      /**
+       * <code>optional uint64 lastLogTerm = 5;</code>
+       * @param value The lastLogTerm to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastLogTerm(long value) {
+
+        lastLogTerm_ = value;
+        bitField0_ |= 0x00000010;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 lastLogTerm = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastLogTerm() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        lastLogTerm_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long commitIndex_ ;
+      /**
+       * <code>optional uint64 commitIndex = 6;</code>
+       * @return Whether the commitIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasCommitIndex() {
+        return ((bitField0_ & 0x00000020) != 0);
+      }
+      /**
+       * <code>optional uint64 commitIndex = 6;</code>
+       * @return The commitIndex.
+       */
+      @java.lang.Override
+      public long getCommitIndex() {
+        return commitIndex_;
+      }
+      /**
+       * <code>optional uint64 commitIndex = 6;</code>
+       * @param value The commitIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCommitIndex(long value) {
+
+        commitIndex_ = value;
+        bitField0_ |= 0x00000020;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 commitIndex = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCommitIndex() {
+        bitField0_ = (bitField0_ & ~0x00000020);
+        commitIndex_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastIncludedIndex_ ;
+      /**
+       * <code>optional uint64 lastIncludedIndex = 7;</code>
+       * @return Whether the lastIncludedIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastIncludedIndex() {
+        return ((bitField0_ & 0x00000040) != 0);
+      }
+      /**
+       * <code>optional uint64 lastIncludedIndex = 7;</code>
+       * @return The lastIncludedIndex.
+       */
+      @java.lang.Override
+      public long getLastIncludedIndex() {
+        return lastIncludedIndex_;
+      }
+      /**
+       * <code>optional uint64 lastIncludedIndex = 7;</code>
+       * @param value The lastIncludedIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastIncludedIndex(long value) {
+
+        lastIncludedIndex_ = value;
+        bitField0_ |= 0x00000040;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 lastIncludedIndex = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastIncludedIndex() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        lastIncludedIndex_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long lastIncludedTerm_ ;
+      /**
+       * <code>optional uint64 lastIncludedTerm = 8;</code>
+       * @return Whether the lastIncludedTerm field is set.
+       */
+      @java.lang.Override
+      public boolean hasLastIncludedTerm() {
+        return ((bitField0_ & 0x00000080) != 0);
+      }
+      /**
+       * <code>optional uint64 lastIncludedTerm = 8;</code>
+       * @return The lastIncludedTerm.
+       */
+      @java.lang.Override
+      public long getLastIncludedTerm() {
+        return lastIncludedTerm_;
+      }
+      /**
+       * <code>optional uint64 lastIncludedTerm = 8;</code>
+       * @param value The lastIncludedTerm to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLastIncludedTerm(long value) {
+
+        lastIncludedTerm_ = value;
+        bitField0_ |= 0x00000080;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint64 lastIncludedTerm = 8;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearLastIncludedTerm() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        lastIncludedTerm_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int snapIndex_ ;
+      /**
+       * <code>optional uint32 snap_index = 9;</code>
+       * @return Whether the snapIndex field is set.
+       */
+      @java.lang.Override
+      public boolean hasSnapIndex() {
+        return ((bitField0_ & 0x00000100) != 0);
+      }
+      /**
+       * <code>optional uint32 snap_index = 9;</code>
+       * @return The snapIndex.
+       */
+      @java.lang.Override
+      public int getSnapIndex() {
+        return snapIndex_;
+      }
+      /**
+       * <code>optional uint32 snap_index = 9;</code>
+       * @param value The snapIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSnapIndex(int value) {
+
+        snapIndex_ = value;
+        bitField0_ |= 0x00000100;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional uint32 snap_index = 9;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSnapIndex() {
+        bitField0_ = (bitField0_ & ~0x00000100);
+        snapIndex_ = 0;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:raft.MetaData)
+    }
+
+    // @@protoc_insertion_point(class_scope:raft.MetaData)
+    private static final top.chaohaorui.raftkv.proto.RaftProto.MetaData DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new top.chaohaorui.raftkv.proto.RaftProto.MetaData();
+    }
+
+    public static top.chaohaorui.raftkv.proto.RaftProto.MetaData getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<MetaData>
+        PARSER = new com.google.protobuf.AbstractParser<MetaData>() {
+      @java.lang.Override
+      public MetaData parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        Builder builder = newBuilder();
+        try {
+          builder.mergeFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(builder.buildPartial());
+        } catch (com.google.protobuf.UninitializedMessageException e) {
+          throw e.asInvalidProtocolBufferException().setUnfinishedMessage(builder.buildPartial());
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(e)
+              .setUnfinishedMessage(builder.buildPartial());
+        }
+        return builder.buildPartial();
+      }
+    };
+
+    public static com.google.protobuf.Parser<MetaData> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<MetaData> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public top.chaohaorui.raftkv.proto.RaftProto.MetaData getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface ConfigurationOrBuilder extends
       // @@protoc_insertion_point(interface_extends:raft.Configuration)
       com.google.protobuf.MessageOrBuilder {
@@ -10017,6 +11397,11 @@ public final class RaftProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_raft_Peer_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_raft_MetaData_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_raft_MetaData_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_raft_Configuration_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -10077,52 +11462,63 @@ public final class RaftProto {
     java.lang.String[] descriptorData = {
       "\n\nraft.proto\022\004raft\"R\n\004Peer\022\017\n\002id\030\001 \001(\tH\000" +
       "\210\001\001\022\017\n\002ip\030\002 \001(\tH\001\210\001\001\022\021\n\004port\030\003 \001(\rH\002\210\001\001B" +
-      "\005\n\003_idB\005\n\003_ipB\007\n\005_port\"F\n\rConfiguration\022" +
-      " \n\002op\030\001 \001(\0162\017.raft.OperationH\000\210\001\001\022\014\n\004pee" +
-      "r\030\002 \003(\tB\005\n\003_op\"\276\001\n\010LogEntry\022\021\n\004term\030\001 \001(" +
-      "\004H\000\210\001\001\022\022\n\005index\030\002 \001(\004H\001\210\001\001\022\"\n\004type\030\003 \001(\016" +
-      "2\017.raft.EntryTypeH\002\210\001\001\022\021\n\004data\030\004 \001(\014H\003\210\001" +
-      "\001\022&\n\004conf\030\005 \001(\0132\023.raft.ConfigurationH\004\210\001" +
-      "\001B\007\n\005_termB\010\n\006_indexB\007\n\005_typeB\007\n\005_dataB\007" +
-      "\n\005_conf\"\365\001\n\022AppendEntryRequest\022\025\n\010leader" +
-      "Id\030\001 \001(\tH\000\210\001\001\022\021\n\004term\030\002 \001(\004H\001\210\001\001\022\031\n\014prev" +
-      "LogIndex\030\003 \001(\004H\002\210\001\001\022\030\n\013prevLogTerm\030\004 \001(\004" +
-      "H\003\210\001\001\022\030\n\013commitIndex\030\005 \001(\004H\004\210\001\001\022\037\n\007entri" +
-      "es\030\006 \003(\0132\016.raft.LogEntryB\013\n\t_leaderIdB\007\n" +
-      "\005_termB\017\n\r_prevLogIndexB\016\n\014_prevLogTermB" +
-      "\016\n\014_commitIndex\"\203\001\n\023AppendEntryResponse\022" +
-      "\021\n\004term\030\001 \001(\004H\000\210\001\001\022\024\n\007success\030\002 \001(\010H\001\210\001\001" +
-      "\022\033\n\016last_log_index\030\003 \001(\004H\002\210\001\001B\007\n\005_termB\n" +
-      "\n\010_successB\021\n\017_last_log_index\"\213\001\n\016Forwar" +
-      "dRequest\022#\n\004type\030\001 \001(\0162\020.raft.FowardType" +
-      "H\000\210\001\001\022\021\n\004data\030\002 \001(\014H\001\210\001\001\022&\n\004conf\030\003 \001(\0132\023" +
-      ".raft.ConfigurationH\002\210\001\001B\007\n\005_typeB\007\n\005_da" +
-      "taB\007\n\005_conf\"N\n\016FowardResponse\022\024\n\007success" +
-      "\030\001 \001(\010H\000\210\001\001\022\021\n\004data\030\002 \001(\014H\001\210\001\001B\n\n\010_succe" +
-      "ssB\007\n\005_data\"\251\001\n\013VoteRequest\022\030\n\013candidate" +
-      "Id\030\001 \001(\tH\000\210\001\001\022\021\n\004term\030\002 \001(\004H\001\210\001\001\022\031\n\014last" +
-      "LogIndex\030\003 \001(\004H\002\210\001\001\022\030\n\013lastLogTerm\030\004 \001(\004" +
-      "H\003\210\001\001B\016\n\014_candidateIdB\007\n\005_termB\017\n\r_lastL" +
-      "ogIndexB\016\n\014_lastLogTerm\"T\n\014VoteResponse\022" +
-      "\021\n\004term\030\001 \001(\004H\000\210\001\001\022\030\n\013voteGranted\030\002 \001(\010H" +
-      "\001\210\001\001B\007\n\005_termB\016\n\014_voteGranted\"\232\002\n\026Instal" +
-      "lSnapshotRequest\022\021\n\004term\030\001 \001(\004H\000\210\001\001\022\025\n\010l" +
-      "eaderId\030\002 \001(\tH\001\210\001\001\022\036\n\021lastIncludedIndex\030" +
-      "\003 \001(\004H\002\210\001\001\022\035\n\020lastIncludedTerm\030\004 \001(\004H\003\210\001" +
-      "\001\022\023\n\006offset\030\005 \001(\004H\004\210\001\001\022\021\n\004data\030\006 \001(\014H\005\210\001" +
-      "\001\022\021\n\004done\030\007 \001(\010H\006\210\001\001B\007\n\005_termB\013\n\t_leader" +
-      "IdB\024\n\022_lastIncludedIndexB\023\n\021_lastInclude" +
-      "dTermB\t\n\007_offsetB\007\n\005_dataB\007\n\005_done\"\237\001\n\027I" +
-      "nstallSnapshotResponse\022\021\n\004term\030\001 \001(\004H\000\210\001" +
-      "\001\022\036\n\021lastIncludedIndex\030\002 \001(\004H\001\210\001\001\022\035\n\020las" +
-      "tIncludedTerm\030\003 \001(\004H\002\210\001\001B\007\n\005_termB\024\n\022_la" +
-      "stIncludedIndexB\023\n\021_lastIncludedTerm*4\n\t" +
-      "RaftState\022\014\n\010FOLLOWER\020\000\022\r\n\tCANDIDATE\020\001\022\n" +
-      "\n\006LEADER\020\002*)\n\tOperation\022\007\n\003GET\020\000\022\007\n\003ADD\020" +
-      "\001\022\n\n\006DELETE\020\002*+\n\nFowardType\022\t\n\005WRITE\020\000\022\010" +
-      "\n\004READ\020\001\022\010\n\004CONF\020\002*(\n\tEntryType\022\010\n\004DADA\020" +
-      "\000\022\021\n\rCONFIGURATION\020\001B(\n\033top.chaohaorui.r" +
-      "aftkv.protoB\tRaftProtob\006proto3"
+      "\005\n\003_idB\005\n\003_ipB\007\n\005_port\"\230\003\n\010MetaData\022\030\n\013c" +
+      "urrentTerm\030\001 \001(\004H\000\210\001\001\022\025\n\010votedFor\030\002 \001(\tH" +
+      "\001\210\001\001\022\032\n\rfirstLogIndex\030\003 \001(\004H\002\210\001\001\022\031\n\014last" +
+      "LogIndex\030\004 \001(\004H\003\210\001\001\022\030\n\013lastLogTerm\030\005 \001(\004" +
+      "H\004\210\001\001\022\030\n\013commitIndex\030\006 \001(\004H\005\210\001\001\022\036\n\021lastI" +
+      "ncludedIndex\030\007 \001(\004H\006\210\001\001\022\035\n\020lastIncludedT" +
+      "erm\030\010 \001(\004H\007\210\001\001\022\027\n\nsnap_index\030\t \001(\rH\010\210\001\001B" +
+      "\016\n\014_currentTermB\013\n\t_votedForB\020\n\016_firstLo" +
+      "gIndexB\017\n\r_lastLogIndexB\016\n\014_lastLogTermB" +
+      "\016\n\014_commitIndexB\024\n\022_lastIncludedIndexB\023\n" +
+      "\021_lastIncludedTermB\r\n\013_snap_index\"F\n\rCon" +
+      "figuration\022 \n\002op\030\001 \001(\0162\017.raft.OperationH" +
+      "\000\210\001\001\022\014\n\004peer\030\002 \003(\tB\005\n\003_op\"\276\001\n\010LogEntry\022\021" +
+      "\n\004term\030\001 \001(\004H\000\210\001\001\022\022\n\005index\030\002 \001(\004H\001\210\001\001\022\"\n" +
+      "\004type\030\003 \001(\0162\017.raft.EntryTypeH\002\210\001\001\022\021\n\004dat" +
+      "a\030\004 \001(\014H\003\210\001\001\022&\n\004conf\030\005 \001(\0132\023.raft.Config" +
+      "urationH\004\210\001\001B\007\n\005_termB\010\n\006_indexB\007\n\005_type" +
+      "B\007\n\005_dataB\007\n\005_conf\"\365\001\n\022AppendEntryReques" +
+      "t\022\025\n\010leaderId\030\001 \001(\tH\000\210\001\001\022\021\n\004term\030\002 \001(\004H\001" +
+      "\210\001\001\022\031\n\014prevLogIndex\030\003 \001(\004H\002\210\001\001\022\030\n\013prevLo" +
+      "gTerm\030\004 \001(\004H\003\210\001\001\022\030\n\013commitIndex\030\005 \001(\004H\004\210" +
+      "\001\001\022\037\n\007entries\030\006 \003(\0132\016.raft.LogEntryB\013\n\t_" +
+      "leaderIdB\007\n\005_termB\017\n\r_prevLogIndexB\016\n\014_p" +
+      "revLogTermB\016\n\014_commitIndex\"\203\001\n\023AppendEnt" +
+      "ryResponse\022\021\n\004term\030\001 \001(\004H\000\210\001\001\022\024\n\007success" +
+      "\030\002 \001(\010H\001\210\001\001\022\033\n\016last_log_index\030\003 \001(\004H\002\210\001\001" +
+      "B\007\n\005_termB\n\n\010_successB\021\n\017_last_log_index" +
+      "\"\213\001\n\016ForwardRequest\022#\n\004type\030\001 \001(\0162\020.raft" +
+      ".FowardTypeH\000\210\001\001\022\021\n\004data\030\002 \001(\014H\001\210\001\001\022&\n\004c" +
+      "onf\030\003 \001(\0132\023.raft.ConfigurationH\002\210\001\001B\007\n\005_" +
+      "typeB\007\n\005_dataB\007\n\005_conf\"N\n\016FowardResponse" +
+      "\022\024\n\007success\030\001 \001(\010H\000\210\001\001\022\021\n\004data\030\002 \001(\014H\001\210\001" +
+      "\001B\n\n\010_successB\007\n\005_data\"\251\001\n\013VoteRequest\022\030" +
+      "\n\013candidateId\030\001 \001(\tH\000\210\001\001\022\021\n\004term\030\002 \001(\004H\001" +
+      "\210\001\001\022\031\n\014lastLogIndex\030\003 \001(\004H\002\210\001\001\022\030\n\013lastLo" +
+      "gTerm\030\004 \001(\004H\003\210\001\001B\016\n\014_candidateIdB\007\n\005_ter" +
+      "mB\017\n\r_lastLogIndexB\016\n\014_lastLogTerm\"T\n\014Vo" +
+      "teResponse\022\021\n\004term\030\001 \001(\004H\000\210\001\001\022\030\n\013voteGra" +
+      "nted\030\002 \001(\010H\001\210\001\001B\007\n\005_termB\016\n\014_voteGranted" +
+      "\"\232\002\n\026InstallSnapshotRequest\022\021\n\004term\030\001 \001(" +
+      "\004H\000\210\001\001\022\025\n\010leaderId\030\002 \001(\tH\001\210\001\001\022\036\n\021lastInc" +
+      "ludedIndex\030\003 \001(\004H\002\210\001\001\022\035\n\020lastIncludedTer" +
+      "m\030\004 \001(\004H\003\210\001\001\022\023\n\006offset\030\005 \001(\004H\004\210\001\001\022\021\n\004dat" +
+      "a\030\006 \001(\014H\005\210\001\001\022\021\n\004done\030\007 \001(\010H\006\210\001\001B\007\n\005_term" +
+      "B\013\n\t_leaderIdB\024\n\022_lastIncludedIndexB\023\n\021_" +
+      "lastIncludedTermB\t\n\007_offsetB\007\n\005_dataB\007\n\005" +
+      "_done\"\237\001\n\027InstallSnapshotResponse\022\021\n\004ter" +
+      "m\030\001 \001(\004H\000\210\001\001\022\036\n\021lastIncludedIndex\030\002 \001(\004H" +
+      "\001\210\001\001\022\035\n\020lastIncludedTerm\030\003 \001(\004H\002\210\001\001B\007\n\005_" +
+      "termB\024\n\022_lastIncludedIndexB\023\n\021_lastInclu" +
+      "dedTerm*4\n\tRaftState\022\014\n\010FOLLOWER\020\000\022\r\n\tCA" +
+      "NDIDATE\020\001\022\n\n\006LEADER\020\002*)\n\tOperation\022\007\n\003GE" +
+      "T\020\000\022\007\n\003ADD\020\001\022\n\n\006DELETE\020\002*+\n\nFowardType\022\t" +
+      "\n\005WRITE\020\000\022\010\n\004READ\020\001\022\010\n\004CONF\020\002*(\n\tEntryTy" +
+      "pe\022\010\n\004DADA\020\000\022\021\n\rCONFIGURATION\020\001B(\n\033top.c" +
+      "haohaorui.raftkv.protoB\tRaftProtob\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -10134,62 +11530,68 @@ public final class RaftProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_Peer_descriptor,
         new java.lang.String[] { "Id", "Ip", "Port", "Id", "Ip", "Port", });
-    internal_static_raft_Configuration_descriptor =
+    internal_static_raft_MetaData_descriptor =
       getDescriptor().getMessageTypes().get(1);
+    internal_static_raft_MetaData_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_raft_MetaData_descriptor,
+        new java.lang.String[] { "CurrentTerm", "VotedFor", "FirstLogIndex", "LastLogIndex", "LastLogTerm", "CommitIndex", "LastIncludedIndex", "LastIncludedTerm", "SnapIndex", "CurrentTerm", "VotedFor", "FirstLogIndex", "LastLogIndex", "LastLogTerm", "CommitIndex", "LastIncludedIndex", "LastIncludedTerm", "SnapIndex", });
+    internal_static_raft_Configuration_descriptor =
+      getDescriptor().getMessageTypes().get(2);
     internal_static_raft_Configuration_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_Configuration_descriptor,
         new java.lang.String[] { "Op", "Peer", "Op", });
     internal_static_raft_LogEntry_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_raft_LogEntry_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_LogEntry_descriptor,
         new java.lang.String[] { "Term", "Index", "Type", "Data", "Conf", "Term", "Index", "Type", "Data", "Conf", });
     internal_static_raft_AppendEntryRequest_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_raft_AppendEntryRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_AppendEntryRequest_descriptor,
         new java.lang.String[] { "LeaderId", "Term", "PrevLogIndex", "PrevLogTerm", "CommitIndex", "Entries", "LeaderId", "Term", "PrevLogIndex", "PrevLogTerm", "CommitIndex", });
     internal_static_raft_AppendEntryResponse_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_raft_AppendEntryResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_AppendEntryResponse_descriptor,
         new java.lang.String[] { "Term", "Success", "LastLogIndex", "Term", "Success", "LastLogIndex", });
     internal_static_raft_ForwardRequest_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_raft_ForwardRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_ForwardRequest_descriptor,
         new java.lang.String[] { "Type", "Data", "Conf", "Type", "Data", "Conf", });
     internal_static_raft_FowardResponse_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_raft_FowardResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_FowardResponse_descriptor,
         new java.lang.String[] { "Success", "Data", "Success", "Data", });
     internal_static_raft_VoteRequest_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(8);
     internal_static_raft_VoteRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_VoteRequest_descriptor,
         new java.lang.String[] { "CandidateId", "Term", "LastLogIndex", "LastLogTerm", "CandidateId", "Term", "LastLogIndex", "LastLogTerm", });
     internal_static_raft_VoteResponse_descriptor =
-      getDescriptor().getMessageTypes().get(8);
+      getDescriptor().getMessageTypes().get(9);
     internal_static_raft_VoteResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_VoteResponse_descriptor,
         new java.lang.String[] { "Term", "VoteGranted", "Term", "VoteGranted", });
     internal_static_raft_InstallSnapshotRequest_descriptor =
-      getDescriptor().getMessageTypes().get(9);
+      getDescriptor().getMessageTypes().get(10);
     internal_static_raft_InstallSnapshotRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_InstallSnapshotRequest_descriptor,
         new java.lang.String[] { "Term", "LeaderId", "LastIncludedIndex", "LastIncludedTerm", "Offset", "Data", "Done", "Term", "LeaderId", "LastIncludedIndex", "LastIncludedTerm", "Offset", "Data", "Done", });
     internal_static_raft_InstallSnapshotResponse_descriptor =
-      getDescriptor().getMessageTypes().get(10);
+      getDescriptor().getMessageTypes().get(11);
     internal_static_raft_InstallSnapshotResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_raft_InstallSnapshotResponse_descriptor,

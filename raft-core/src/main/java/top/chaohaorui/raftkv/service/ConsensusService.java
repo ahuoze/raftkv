@@ -2,6 +2,8 @@ package top.chaohaorui.raftkv.service;
 
 import top.chaohaorui.raftkv.proto.RaftProto;
 
+import java.io.IOException;
+
 public interface ConsensusService {
     public RaftProto.VoteResponse vote(RaftProto.VoteRequest request);
     public RaftProto.AppendEntryResponse appendEntries(RaftProto.AppendEntryRequest request);
