@@ -74,8 +74,10 @@ public class Peer {
             rpcClient = new RpcClient(new Endpoint(ip, port));
             this.consensusService = BrpcProxy.getProxy(rpcClient, ConsensusService.class);
         } catch (Error e) {
+            e.printStackTrace();
             return false;
         }  catch (Exception e) {
+            e.printStackTrace();
             return false;
         }
         return true;

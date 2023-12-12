@@ -1,0 +1,21 @@
+syntax="proto3";
+
+package raft;
+option java_package = "top.chaohaorui.raftkv.proto";
+option java_outer_classname = "SimpleProto";
+
+enum MsgType {
+    Read = 0;
+    Write = 1;
+}
+
+message MsgRequest {
+    MsgType type = 1;
+    string key = 2;
+    optional string value = 3;
+}
+
+message MsgResponse {
+    bool success = 1;
+    optional string value = 2;
+}

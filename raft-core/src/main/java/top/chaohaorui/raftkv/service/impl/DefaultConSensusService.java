@@ -3,6 +3,7 @@ package top.chaohaorui.raftkv.service.impl;
 import com.google.protobuf.ByteString;
 import org.slf4j.Logger;
 import top.chaohaorui.raftkv.RaftNode;
+import top.chaohaorui.raftkv.conf.RaftOptions;
 import top.chaohaorui.raftkv.proto.RaftProto;
 import top.chaohaorui.raftkv.service.ConsensusService;
 import top.chaohaorui.raftkv.store.LogModule;
@@ -78,7 +79,7 @@ public class DefaultConSensusService implements ConsensusService {
     @Override
     public RaftProto.AppendEntryResponse appendEntries(RaftProto.AppendEntryRequest request){
         RaftProto.AppendEntryResponse.Builder builder = RaftProto.AppendEntryResponse.newBuilder();
-        LOG.info("{} recieve appendEntries request from {}",raftNode.getLocalPeer().getId(),request.getLeaderId());
+//        LOG.info("{} recieve appendEntries request from {}",raftNode.getLocalPeer().getId(),request.getLeaderId());
         builder.setTerm(raftNode.getCurrTerm());
         builder.setSuccess(false);
         builder.setLastLogIndex(raftNode.getLogModule().getLastLogIndex());
@@ -117,7 +118,7 @@ public class DefaultConSensusService implements ConsensusService {
             applyLogToMachine(request);
             return builder.build();
         }
-
+        LOG.info("{} recieve appendEntries request from {}",raftNode.getLocalPeer().getId(),request.getLeaderId());
         for (RaftProto.LogEntry logEntry : request.getEntriesList()) {
             if(logEntry.getIndex() < logModule.getFirstLogIndex()) continue;
             try {
@@ -187,7 +188,6 @@ public class DefaultConSensusService implements ConsensusService {
         LogModule logModule = raftNode.getLogModule();
         Snapshot snapshot = logModule.getSnapshot();
         ReadWriteLock snapshotLock = logModule.getSnapshotLock();
-        Properties raftProperties = raftNode.getRaftProperties();
         String path = logModule.getSnapshotDir();
         try{
             snapshotLock.writeLock().lock();
@@ -224,6 +224,7 @@ public class DefaultConSensusService implements ConsensusService {
             builder.setSuccess(false);
             LOG.error("forward peer is not leader");
         }
+        LOG.info("receive forward request");
         switch (request.getType()){
             case WRITE -> {
                 byte[] command = request.getData().toByteArray();

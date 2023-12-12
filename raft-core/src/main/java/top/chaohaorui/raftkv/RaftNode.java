@@ -5,6 +5,7 @@ import com.google.protobuf.ByteString;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import top.chaohaorui.raftkv.conf.RaftOptions;
 import top.chaohaorui.raftkv.proto.RaftProto;
 import top.chaohaorui.raftkv.service.ConsensusService;
 import top.chaohaorui.raftkv.service.impl.DefaultConSensusService;
@@ -27,7 +28,7 @@ public class RaftNode {
     private volatile NodeState status;
     private LogModule logModule;
     private Map<String,Peer> peerMap;
-    private Properties RaftProperties;
+    private RaftOptions raftOptions;
     private StateMachine stateMachine;
     private ScheduledExecutorService scheduledExecutorService;
     private CompletionService<Boolean> completionService;
@@ -97,16 +98,16 @@ public class RaftNode {
             this.peer = peer;
             msgQueue = new LinkedBlockingDeque<>();
             waitOutTime = Math.min(
-                    RaftProperties.getProperty("raft.followerHandler.waitOutTime") == null?
-                    Long.parseLong(RaftProperties.getProperty("raft.replicate.maxwaitTime")) / 5 :
-                    Long.parseLong(RaftProperties.getProperty("raft.followerHandler.waitOutTime")),
-                    Long.parseLong(RaftProperties.getProperty("raft.replicate.maxwaitTime")) / 5
+                    raftOptions.RaftFollowerHandlerWaitOutTime == null?
+                    Long.parseLong(raftOptions.RaftReplicateMaxWaitTime) / 5 :
+                    Long.parseLong(raftOptions.RaftFollowerHandlerWaitOutTime),
+                    Long.parseLong(raftOptions.RaftReplicateMaxWaitTime) / 5
             );
             limitSize = Math.max(
-                    RaftProperties.getProperty("raft.followerHandler.limitSize") == null ?
-                    1 : Long.parseLong(RaftProperties.getProperty("raft.followerHandler.limitSize"))
+                    raftOptions.RaftFollowerHandlerLimitSize == null ?
+                    1 : Long.parseLong(raftOptions.RaftFollowerHandlerLimitSize)
                     ,1);
-            heartbeatInterval = Long.parseLong(RaftProperties.getProperty("raft.heartbeat.interval"));
+            heartbeatInterval = Long.parseLong(raftOptions.RaftHeartbeatInterval);
         }
         @Override
         public void run() {
@@ -215,11 +216,12 @@ public class RaftNode {
         handlerMap.clear();
     }
 
-    public RaftNode(String multiAddress, String localid, StateMachine stateMachine, Snapshot snapshot) throws IOException {
+    public RaftNode(RaftOptions raftOptions, StateMachine stateMachine, Snapshot snapshot) throws IOException {
+        this.raftOptions = raftOptions;
+        String multiAddress = raftOptions.getMultiAddress();
+        String localid = raftOptions.getLocalid();
         String[] address = multiAddress.split(",");
-        RaftProperties = new Properties();
-        RaftProperties.load(RaftNode.class.getClassLoader().getResourceAsStream("raft.properties"));
-        snapshot.setPath(RaftProperties.getProperty("snapshot.dir"));
+        snapshot.setPath(raftOptions.SnapshotDir);
         handlerMap = new ConcurrentHashMap<>();
         peerMap = new HashMap<>();
         for (String s : address) {
@@ -236,18 +238,18 @@ public class RaftNode {
             handlerMap.put(id,new FollowerHandler(peer));
         }
         threadPoolExecutor = new ThreadPoolExecutor(
-                Integer.parseInt(RaftProperties.getProperty("threadpool.corepoolsize")),
-                Integer.parseInt(RaftProperties.getProperty("threadpool.maxpoolsize")),
-                Long.parseLong(RaftProperties.getProperty("threadpool.keepalivetime")),
+                Integer.parseInt(raftOptions.ThreadPoolCorePoolSize),
+                Integer.parseInt(raftOptions.ThreadPoolMaxPoolSize),
+                Long.parseLong(raftOptions.ThreadPoolKeepAliveTime),
                 TimeUnit.MILLISECONDS,
-                new LinkedBlockingQueue<>(Integer.parseInt(RaftProperties.getProperty("threadpool.queuecapacity"))),
+                new LinkedBlockingQueue<>(Integer.parseInt(raftOptions.ThreadPoolQueueCapacity)),
                 new ThreadPoolExecutor.CallerRunsPolicy()
         );
         isSkipElection = new AtomicBoolean(false);
         rpcServer = new RpcServer(localPeer.getPort());
         consensusService = new DefaultConSensusService(this);
         rpcServer.registerService(consensusService);
-        this.logModule = new DefaultLogModule(snapshot,RaftProperties.getProperty("raft.log.dir"));
+        this.logModule = new DefaultLogModule(snapshot,raftOptions.RaftLogDir);
         nextIndex = new ConcurrentHashMap<>();
         matchIndex = new ConcurrentHashMap<>();
         parkQueue = new ConcurrentLinkedDeque<>();
@@ -280,7 +282,7 @@ public class RaftNode {
     }
 
     private synchronized void beginSnapshot() {
-        long snapshotTime = (long)(Long.parseLong(RaftProperties.getProperty("snapshot.interval")) * (1 + Math.random()));
+        long snapshotTime = (long)(Long.parseLong(raftOptions.SnapshotInterval) * (1 + Math.random()));
         scheduledExecutorService.scheduleAtFixedRate(new Runnable() {
             @Override
             public void run() {
@@ -312,7 +314,7 @@ public class RaftNode {
     }
 
     public void resetElectionTimer() {
-        logger.info(localPeer.getId() + ": reset election timer");
+//        logger.info(localPeer.getId() + ": reset election timer");
         isSkipElection.compareAndSet(false,true);
     }
 
@@ -337,10 +339,10 @@ public class RaftNode {
                                                                    return result;
                                                                }
                                                            },
-                (long) (Long.parseLong(RaftProperties.getProperty("election.timeout.basetime"), 10) *
+                (long) (Long.parseLong(raftOptions.ElectionTimeoutBaseTime, 10) *
                                 (
                                 Math.random() *
-                                        Math.min(Integer.parseInt(RaftProperties.getProperty("election.timeout.ratio"),10),10)
+                                        Math.min(Integer.parseInt(raftOptions.ElectionTimeoutRatio,10),10)
                                  + 1
                                 ))
                 , TimeUnit.MILLISECONDS);
@@ -400,7 +402,7 @@ public class RaftNode {
             );
         }
         try {
-            latch.await(Long.parseLong(RaftProperties.getProperty("election.elect.waitTime")),TimeUnit.MILLISECONDS);
+            latch.await(Long.parseLong(raftOptions.ElectionElectWaitTime),TimeUnit.MILLISECONDS);
         } catch (InterruptedException e) {
             logger.error("选举等待过程被打断");
             e.printStackTrace();
@@ -476,13 +478,13 @@ public class RaftNode {
             long start = System.currentTimeMillis();
             long now = start;
             while (appliedIndex < logEntry.getIndex()){
-                if(now - start > Long.parseLong(RaftProperties.getProperty("raft.replicate.maxwaitTime")) &&
+                if(now - start > Long.parseLong(raftOptions.RaftReplicateMaxWaitTime) &&
                     !isTakeSnapshot){
                     break;
                 }
                 now = System.currentTimeMillis();
                 try {
-                    currThreadCondition.await(Long.parseLong(RaftProperties.getProperty("raft.replicate.maxwaitTime")),TimeUnit.MILLISECONDS);
+                    currThreadCondition.await(Long.parseLong(raftOptions.RaftReplicateMaxWaitTime),TimeUnit.MILLISECONDS);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -643,7 +645,7 @@ public class RaftNode {
     private boolean tryInstallSnapshot(Peer peer) throws IOException {
         if(peer.isInstallingSnapshot.compareAndSet(false,true)){
             long offset = 0;
-            long intervalSize = Long.parseLong((String) RaftProperties.getOrDefault("snapshot.transmit.size",1));
+            long intervalSize = Long.parseLong(raftOptions.SnapshotTransmitSize);
             long totalSize = logModule.getSnapshot().getSnapshotSize();
             logModule.getSnapshotLock().writeLock().lock();
             try {
@@ -676,7 +678,7 @@ public class RaftNode {
 
 
     private void trySendSnapShotBytes(RaftProto.InstallSnapshotRequest installSnapshotRequest, Peer peer) throws RuntimeException,IOException{
-        int times = RaftProperties.getProperty("install.snapshot.max.times") == null ? 3 : Integer.parseInt(RaftProperties.getProperty("install.snapshot.max.times"));
+        int times = raftOptions.InstallSnapshotMaxTime == null ? 3 : Integer.parseInt(raftOptions.InstallSnapshotMaxTime);
         for(int i = 0; i < times; i++){
             RaftProto.InstallSnapshotResponse installSnapshotResponse = peer.getConsensusService().installSnapshot(installSnapshotRequest);
             if(installSnapshotResponse == null){
@@ -745,8 +747,8 @@ public class RaftNode {
         return logModule;
     }
 
-    public Properties getRaftProperties() {
-        return RaftProperties;
+    public RaftOptions getRaftOptions() {
+        return raftOptions;
     }
 
     public StateMachine getStateMachine() {

@@ -121,7 +121,7 @@ public class DefaultLogModule extends LogModule {
                 return;
             }
             updateMetaData(null,null,null,
-                    startIndex,null,null,
+                    startIndex,startIndex == 0 ? 0 : getTerm(startIndex),null,
                     null,null,null);
             logSegment.truncateSuffix(startIndex);
         } catch (IOException e) {
