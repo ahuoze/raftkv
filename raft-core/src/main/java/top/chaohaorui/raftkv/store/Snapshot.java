@@ -16,10 +16,6 @@ public abstract class Snapshot {
 
     public abstract byte[] getSnapshotBytes(long offset, long intervalSize,String path);
 
-    public abstract void open(String path);
-
-    public abstract void close();
-
     public abstract void writeSnapshotBytes(long offset,byte[] data,String path);
 
     public abstract long getSnapshotSize();

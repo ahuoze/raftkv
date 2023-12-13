@@ -25,16 +25,6 @@ public class ExampleSnapshot extends Snapshot {
     }
 
     @Override
-    public void open(String path) {
-
-    }
-
-    @Override
-    public void close() {
-
-    }
-
-    @Override
     public void writeSnapshotBytes(long offset, byte[] data, String path) {
         try {
             path = path + File.separator + "example.data";
